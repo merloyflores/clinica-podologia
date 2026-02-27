@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { ChevronRight, Star, ShieldCheck, HeartPulse } from 'lucide-react';
+import { ChevronRight, Star, ShieldCheck, HeartPulse, Link } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -90,6 +90,98 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section className="py-24 bg-slate-50 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-6">
+              <h3 className="text-brand-purple font-black uppercase tracking-widest text-xs">Procedimiento Profesional</h3>
+              <h2 className="text-4xl font-extrabold text-brand-dark">¿Qué es la Quiropodia?</h2>
+              <p className="text-slate-600 leading-relaxed">
+                Más que un pedicure clínico, la quiropodia es el tratamiento especializado para evaluar la salud de tus uñas y planta del pie. 
+                Observa cómo realizamos un examen exhaustivo para eliminar callosidades, tratar uñas y devolverle la vitalidad a tu caminar.
+              </p>
+              <ul className="space-y-3">
+                {['Evaluación de lámina ungueal', 'Tratamiento de hiperqueratosis', 'Hidratación profunda'].map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-sm font-semibold text-slate-700">
+                    <div className="w-1.5 h-1.5 rounded-full bg-brand-green"></div>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            {/* Video Container con Sombra Magistral */}
+            <div className="relative aspect-video rounded-[40px] overflow-hidden shadow-[0_30px_60px_-15px_rgba(123,44,191,0.3)] border-8 border-white">
+              <iframe 
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/AeUk4AiiB78" 
+                title="¿Qué es la Quiropodia?"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section className="py-20 bg-green-100 text-white relative overflow-hidden">
+        {/* Círculos decorativos de fondo */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-brand-purple/10 rounded-full -mr-20 -mt-20 blur-3xl"></div>
+        
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-12">
+            <div className="max-w-xl">
+              <h2 className="text-3xl md:text-4xl text-blue-950 font-black mb-6">Tu salud comienza con nuestra higiene</h2>
+              <p className="text-slate-400 leading-relaxed">
+                Utilizamos instrumental especializado, empacado y esterilizado para cada paciente. 
+                Nuestros estrictos protocolos de bioseguridad garantizan un ambiente libre de infecciones y hongos.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-4 w-full md:w-auto">
+              <div className="p-6 bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 text-center">
+                <span className="block text-3xl mb-2">🛡️</span>
+                <span className="text-[10px] uppercase font-bold tracking-widest text-blue-950">100% Estéril</span>
+              </div>
+              <div className="p-6 bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 text-center">
+                <span className="block text-3xl mb-2">🔬</span>
+                <span className="text-[10px] uppercase font-bold tracking-widest text-blue-950">Tecnología</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+<section className="py-24 bg-white">
+  <div className="max-w-5xl mx-auto px-6">
+    <div className="relative bg-brand-purple rounded-[60px] p-12 lg:p-20 text-center overflow-hidden shadow-[0_50px_100px_-20px_rgba(123,44,191,0.4)]">
+      {/* Decoración abstracta */}
+      <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+      
+      <div className="relative z-10 space-y-8">
+        <h2 className="text-4xl lg:text-6xl font-black text-blue-950 leading-tight">
+          ¿Listo para caminar <br /> 
+          <span className="text-brand-green italic">sin dolor?</span>
+        </h2>
+        <p className="text-blue-950 text-lg max-w-2xl mx-auto leading-relaxed">
+          No dejes que una molestia se convierta en una patología. Agenda tu cita mensual de quiropodia y dale a tus pies el cuidado profesional que merecen.
+        </p>
+        <div className="pt-6">
+          <Link 
+            href="https://wa.me/50662500117"
+            className="inline-flex items-center gap-4 bg-emerald-600 text-amber-50 px-12 py-6 rounded-full font-black text-lg uppercase tracking-tighter hover:scale-105 hover:shadow-2xl transition-all duration-500 group"
+          >
+            Reservar mi Espacio Ahora
+            <span className="group-hover:translate-x-2 transition-transform">→</span>
+          </Link>
+        </div>
+        <p className="text-purple-200 text-xs font-bold uppercase tracking-[0.3em]">
+          Ubicación: San José, Costa Rica
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
     </main>
   );
 }
