@@ -1,54 +1,53 @@
 import Link from 'next/link';
-import { Phone, Mail, Instagram, Facebook } from 'lucide-react'; // Instala lucide-react
+import Image from 'next/image';
+import { Phone, Instagram, Facebook, Clock } from 'lucide-react';
 
 export default function Navbar() {
   return (
-    <nav className="w-full border-b border-gray-100">
-      {/* BARRA SUPERIOR (Contacto y Redes) */}
-      <div className="bg-slate-50 py-2 px-6 hidden md:flex justify-between items-center text-sm text-slate-600">
-        <div className="flex gap-6">
-          <span className="flex items-center gap-2">
-            <Phone size={16} className="text-brand-purple" /> +506 8888-8888
-          </span>
-          <span className="flex items-center gap-2">
-            <Mail size={16} className="text-brand-purple" /> info@ximenaalvarado.com
-          </span>
-        </div>
-        <div className="flex gap-4">
-          <Instagram size={18} className="hover:text-brand-purple cursor-pointer transition" />
-          <Facebook size={18} className="hover:text-brand-purple cursor-pointer transition" />
-        </div>
-      </div>
+    <header className="fixed w-full top-0 z-50 transition-all duration-300">
 
-      {/* BARRA PRINCIPAL (Logo y Menú) */}
-      <div className="py-4 px-6 flex justify-between items-center bg-white">
-        {/* LOGO: Texto Morado con estilo profesional */}
-        <div className="flex flex-col">
-          <span className="text-2xl font-bold tracking-tighter text-brand-purple leading-none">
-            XIMENA ALVARADO
-          </span>
-          <span className="text-[10px] uppercase tracking-[0.2em] font-medium text-slate-500">
-            Centro Podológico · Quiropodista
-          </span>
+
+      {/* 2. MAIN NAV: El "Cristal" */}
+      <nav className="bg-white/80 backdrop-blur-md border-b border-slate-200/50 px-6 lg:px-20 py-4 flex justify-between items-center shadow-sm">
+        <Link href="/" className="group transition-transform hover:scale-[1.02]">
+          <Image 
+            src="/images/LogoCompleto.PNG" 
+            alt="Ximena Alvarado Centro Podológico" 
+            width={240} 
+            height={70} 
+            className="h-12 w-auto object-contain rounded-2xl"
+          />
+        </Link>
+
+        {/* Links con efecto Underline */}
+        <div className="hidden lg:flex items-center gap-10">
+          {['Inicio', 'Quiropodia', 'Tratamientos', 'Resultados', 'Blog'].map((item) => (
+            <Link 
+              key={item}
+              href={`/${item.toLowerCase()}`}
+              className="relative text-[13px] font-bold uppercase tracking-widest text-brand-dark hover:text-brand-purple transition-colors group"
+            >
+              {item}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-purple transition-all group-hover:w-full"></span>
+            </Link>
+          ))}
         </div>
 
-        {/* MENÚ DE NAVEGACIÓN */}
-        <div className="hidden lg:flex items-center gap-8 font-medium text-slate-700">
-          <Link href="/" className="hover:text-brand-purple transition">Inicio</Link>
-          <Link href="/quiropodia" className="hover:text-brand-purple transition">Quiropodia</Link>
-          <Link href="/servicios" className="hover:text-brand-purple transition">Tratamientos</Link>
-          <Link href="/casos" className="hover:text-brand-purple transition">Casos Reales</Link>
-          <Link href="/blog" className="hover:text-brand-purple transition">Blog</Link>
-          
-          {/* BOTÓN WHATSAPP (Basado en el estilo de la imagen) */}
-          <Link 
-            href="https://wa.me/tu-numero" 
-            className="bg-brand-green text-white px-6 py-2 rounded-full font-bold flex items-center gap-2 hover:bg-opacity-90 transition shadow-md"
-          >
-            Agendar Cita
-          </Link>
-        </div>
-      </div>
-    </nav>
+        {/* Botón de Acción con Animación */}
+        <Link 
+          href="https://wa.me/50662500117"
+          target="_blank"
+          className="relative flex items-center gap-3 bg-brand-green text-white bg-gray-400 px-7 py-3 rounded-full font-black text-xs uppercase tracking-tighter hover:bg-[#1eb954] transition-all shadow-lg hover:shadow-green-200/50 overflow-hidden group"
+        >
+          <span className="relative z-10">Agendar Cita</span>
+          <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+          {/* Círculo de pulso para atención */}
+          <span className="absolute -top-1 -right-1 flex h-3 w-3">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-green opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-brand-green"></span>
+          </span>
+        </Link>
+      </nav>
+    </header>
   );
 }

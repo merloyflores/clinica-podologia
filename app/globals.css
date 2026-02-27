@@ -3,13 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-purple: #814DAF;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +17,17 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.navbar a {
+  /* Estilos predeterminados de tus enlaces (ej. color negro) */
+  color: black; 
+  text-decoration: none; 
+  transition: color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+.navbar a:hover {
+  /* El color cambia al morado definido al pasar el mouse */
+  color: var(--color-purple); 
 }
