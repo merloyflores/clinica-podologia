@@ -150,38 +150,38 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-<section className="py-24 bg-white">
-  <div className="max-w-5xl mx-auto px-6">
-    <div className="relative bg-brand-purple rounded-[60px] p-12 lg:p-20 text-center overflow-hidden shadow-[0_50px_100px_-20px_rgba(123,44,191,0.4)]">
-      {/* Decoración abstracta */}
-      <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
       
-      <div className="relative z-10 space-y-8">
-        <h2 className="text-4xl lg:text-6xl font-black text-blue-950 leading-tight">
-          ¿Listo para caminar <br /> 
-          <span className="text-brand-green italic">sin dolor?</span>
-        </h2>
-        <p className="text-blue-950 text-lg max-w-2xl mx-auto leading-relaxed">
-          No dejes que una molestia se convierta en una patología. Agenda tu cita mensual de quiropodia y dale a tus pies el cuidado profesional que merecen.
-        </p>
-        <div className="pt-6">
-          <Link 
-            href="https://wa.me/50662500117"
-            className="inline-flex items-center gap-4 bg-emerald-600 text-amber-50 px-12 py-6 rounded-full font-black text-lg uppercase tracking-tighter hover:scale-105 hover:shadow-2xl transition-all duration-500 group"
-          >
-            Reservar mi Espacio Ahora
-            <span className="group-hover:translate-x-2 transition-transform">→</span>
-          </Link>
+      <section className="py-24 bg-white">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="relative bg-brand-purple rounded-[60px] p-12 lg:p-20 text-center overflow-hidden shadow-[0_50px_100px_-20px_rgba(123,44,191,0.4)]">
+            {/* Decoración abstracta */}
+            <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+            
+            <div className="relative z-10 space-y-8">
+              <h2 className="text-4xl lg:text-6xl font-black text-blue-950 leading-tight">
+                ¿Listo para caminar <br /> 
+                <span className="text-brand-green italic">sin dolor?</span>
+              </h2>
+              <p className="text-blue-950 text-lg max-w-2xl mx-auto leading-relaxed">
+                No dejes que una molestia se convierta en una patología. Agenda tu cita mensual de quiropodia y dale a tus pies el cuidado profesional que merecen.
+              </p>
+              <div className="pt-4">
+                <Link 
+                  href="https://wa.me/50662500117"
+                  target="_blank"
+                  className="inline-flex items-center gap-4 bg-emerald-600 text-white px-12 py-6 rounded-full font-black text-lg uppercase tracking-tighter hover:scale-105 hover:shadow-2xl transition-all duration-500 group"
+                >
+                  Reservar mi Espacio Ahora
+                  <span className="group-hover:translate-x-2 transition-transform">→</span>
+                </Link>
+              </div>
+              <p className="text-purple-200 text-xs font-bold uppercase tracking-[0.3em]">
+                Ubicación: San José, Costa Rica
+              </p>
+            </div>
+          </div>
         </div>
-        <p className="text-purple-200 text-xs font-bold uppercase tracking-[0.3em]">
-          Ubicación: San José, Costa Rica
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
+      </section>
     </main>
   );
 }

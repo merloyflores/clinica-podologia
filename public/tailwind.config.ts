@@ -9,12 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Colores personalizados para Ximena Alvarado
         brand: {
-          green: "#25D366",   // Verde WhatsApp
-          purple: "#7B2CBF",  // Morado del logo
-          light: "#F8FAFC",   // Blanco/Grisáceo muy suave para fondos
-          dark: "#1E293B",    // Gris oscuro profesional para textos
+          purple: "#7B2CBF",  // El morado real del logo
+          dark: "#0F172A",    // Un azul pizarra casi negro (más moderno que el azul puro)
+          green: "#25D366",   // El verde oficial de WhatsApp
+          slate: "#64748B",   // Gris profesional para textos secundarios
+          cream: "#F8FAFC",   // Blanco azulado para fondos (limpio y médico)
         },
       },
     },
