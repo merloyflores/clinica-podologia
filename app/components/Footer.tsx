@@ -97,7 +97,15 @@ export default function Footer() {
             © {currentYear} Ximena Alvarado. Todos los derechos reservados.
           </p>
           <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest flex items-center gap-2">
-            Diseñado por <span className="text-slate-500 border-b border-slate-700 font-black">Nexflow Digital</span>
+            Diseñado por 
+            <a 
+              href="https://nexflow-digital.vercel.app" // O la URL de tu portafolio
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-slate-500 border-b border-slate-700 font-black hover:text-[#7B2CBF] hover:border-[#7B2CBF] transition-all duration-300"
+            >
+              Nexflow Digital
+            </a>
           </p>
         </div>
       </div>
