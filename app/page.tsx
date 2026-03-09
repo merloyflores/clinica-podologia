@@ -1,120 +1,104 @@
 import Image from 'next/image';
-import { ChevronRight, Star, ShieldCheck, HeartPulse, Link } from 'lucide-react';
+import { ChevronRight, Star, ShieldCheck, HeartPulse, Activity } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Home() {
   return (
     <main className="flex flex-col w-full">
-      {/* SECCIÓN 1: HERO */}
-      <section className="relative min-h-[90vh] flex items-center justify-center px-6 lg:px-20 pt-24 overflow-hidden bg-brand-dark">  
-      {/* 1. VIDEO DE FONDO CON TINTE Y BLUR */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover scale-105 blur-xs opacity-50" 
-        >
-          <source src="/videos/clinica-vitruvio-hero.mp4" type="video/mp4" />
-        </video>
-
-        {/* TINTE MORADO SUTIL (Overlay) */}
-        <div className="absolute inset-0 bg-linear-to-tr from-brand-dark via-[#7B2CBF]/30 to-brand-dark/40"></div>
-        
-        {/* MALLA DE PUNTOS (Opcional, para textura profesional) */}
-        <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
-      </div>
+      {/* SECCIÓN 1: HERO - Ajustado a Deep Clinical */}
+      <section className="relative min-h-[90vh] flex items-center justify-center px-6 lg:px-20 pt-24 overflow-hidden bg-slate-950">  
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <video
+            autoPlay loop muted playsInline
+            className="w-full h-full object-cover scale-105 blur-xs opacity-40" 
+          >
+            <source src="/videos/clinica-vitruvio-hero.mp4" type="video/mp4" />
+          </video>
+          {/* Overlay más sobrio: Azul profundo a Morado marca */}
+          <div className="absolute inset-0 bg-linear-to-tr from-slate-950 via-[#7B2CBF]/20 to-slate-950/80"></div>
+        </div>
 
         {/* 2. CONTENIDO (Ahora sobre el video) */}
         <div className="relative z-10 w-full flex flex-col lg:flex-row items-center justify-between">
-          
-          {/* Lado Izquierdo: Texto y Acción */}
           <div className="flex-1 space-y-8 py-10">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-sm">
-              <Star size={14} className="text-brand-green fill-brand-green" />
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 shadow-sm">
+              <Star size={14} className="text-[#25D366] fill-[#25D366]" />
               <span className="text-white text-[10px] font-black uppercase tracking-[0.2em]">
-                Quiropodista Especializada
+                Centro Podológico Ximena Alvarado
               </span>
             </div>
             
             <h1 className="text-5xl lg:text-8xl font-black text-white leading-[0.9] tracking-tighter">
               Salud y estética <br />
-              <span className="text-brand-purple">para tus pies.</span>
+              <span className="text-[#7B2CBF]">quirúrgica.</span>
             </h1>
-            
-            <p className="text-lg text-slate-200 max-w-lg leading-relaxed font-medium">
-              En el Centro Podológico Ximena Alvarado, combinamos tecnología de vanguardia y calidez humana para que vuelvas a caminar con total confianza.
+
+            <p className="text-lg text-slate-300 max-w-lg leading-relaxed font-medium">
+              Diagnóstico y tratamiento especializado bajo estándares hospitalarios en el Centro Podológico Ximena Alvarado.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-5">
-              {/* Botón Principal: Agendar Consulta */}
-              <button className="px-10 py-5 rounded-full font-bold text-white bg-[#7B2CBF] hover:bg-[#9D4EDD] hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 transform active:scale-95 border-none">
+              <Link href="/agendar" className="inline-flex items-center px-10 py-5 rounded-full font-bold text-white bg-[#7B2CBF] hover:bg-[#6a24a3] shadow-xl transition-all duration-300">
                 Agendar Consulta
-              </button>
-
-              {/* Botón Secundario: Nuestros Servicios */}
-              <button className="px-10 py-5 rounded-full font-bold text-white border-2 border-white/30 bg-white/5 backdrop-blur-sm hover:bg-white hover:text-indigo-950 hover:-translate-y-1 transition-all duration-300 transform active:scale-95">
-                Nuestros Servicios
-              </button>
+              </Link>
+              <Link href="/servicios" className="inline-flex items-center px-10 py-5 rounded-full font-bold text-white border-2 border-white/20 bg-white/5 backdrop-blur-sm hover:bg-white hover:text-slate-950 transition-all duration-300">
+                Ver Tratamientos
+              </Link>
             </div>
           </div>
-
-          {/* Espacio vacío a la derecha para dejar ver el video en desktop */}
           <div className="hidden lg:flex flex-1"></div>
         </div>
       </section>
 
+      {/* SECCIÓN 2: VALORES */}
       <section className="py-24 bg-[#F8FAFC] px-6 lg:px-20 relative overflow-hidden">
-            {/* Decoración de fondo sutil para separar secciones */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-linear-to-r from-transparent via-slate-200 to-transparent"></div>
-            
-            <div className="max-w-7xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-                
-                {/* Valor 1: Bioseguridad */}
-                <div className="group p-8 bg-white rounded-4xl shadow-[0_20px_50px_rgba(0,0,0,0.04)] border border-slate-100 hover:border-brand-green/30 hover:shadow-[0_30px_60px_rgba(37,211,102,0.1)] transition-all duration-500 hover:-translate-y-2">
-                  <div className="w-16 h-16 bg-green-50 rounded-2xl text-[#25D366] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-                    <ShieldCheck size={36} strokeWidth={1.5} />
-                  </div>
-                  <h4 className="font-black text-brand-dark text-xl mb-3 tracking-tight">Bioseguridad</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed font-medium">
-                    Protocolos rigurosos de esterilización con instrumental sellado para tu total tranquilidad y seguridad médica.
-                  </p>
-                </div>
-                
-                {/* Valor 2: Atención Humana */}
-                <div className="group p-8 bg-white rounded-4xl shadow-[0_20px_50px_rgba(0,0,0,0.04)] border border-slate-100 hover:border-brand-purple/30 hover:shadow-[0_30px_60px_rgba(123,44,191,0.1)] transition-all duration-500 hover:-translate-y-2">
-                  <div className="w-16 h-16 bg-purple-50 rounded-2xl text-[#7B2CBF] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-                    <HeartPulse size={36} strokeWidth={1.5} />
-                  </div>
-                  <h4 className="font-black text-brand-dark text-xl mb-3 tracking-tight">Atención Humana</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed font-medium">
-                    Trato cercano y personalizado de la mano de la especialista Ximena Alvarado, priorizando tu bienestar.
-                  </p>
-                </div>
-
-                {/* Valor 3: Resultados Reales */}
-                <div className="group p-8 bg-white rounded-4xl shadow-[0_20px_50px_rgba(0,0,0,0.04)] border border-slate-100 hover:border-blue-200 hover:shadow-[0_30px_60px_rgba(59,130,246,0.1)] transition-all duration-500 hover:-translate-y-2">
-                  <div className="w-16 h-16 bg-blue-50 rounded-2xl text-blue-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-                    <Star size={36} strokeWidth={1.5} />
-                  </div>
-                  <h4 className="font-black text-brand-dark text-xl mb-3 tracking-tight">Resultados Reales</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed font-medium">
-                    Cientos de pacientes satisfechos con tratamientos indoloros, efectivos y garantizados desde la primera cita.
-                  </p>
-                </div>
-
+        {/* Decoración de fondo sutil para separar secciones */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-linear-to-r from-transparent via-slate-200 to-transparent"></div>
+        
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+            {/* Valor 1: Bioseguridad */}
+            <div className="group p-8 bg-white rounded-4xl shadow-[0_20px_50px_rgba(0,0,0,0.04)] border border-slate-100 hover:border-brand-green/30 hover:shadow-[0_30px_60px_rgba(37,211,102,0.1)] transition-all duration-500 hover:-translate-y-2">
+              <div className="w-16 h-16 bg-green-50 rounded-2xl text-[#25D366] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                <ShieldCheck size={36} strokeWidth={1.5} />
               </div>
+              <h4 className="font-black text-brand-dark text-xl mb-3 tracking-tight">Bioseguridad</h4>
+              <p className="text-slate-500 text-sm leading-relaxed font-medium">
+                Protocolos rigurosos de esterilización con instrumental sellado para tu total tranquilidad y seguridad médica.
+              </p>
             </div>
+            
+            {/* Valor 2: Atención Humana */}
+            <div className="group p-8 bg-white rounded-4xl shadow-[0_20px_50px_rgba(0,0,0,0.04)] border border-slate-100 hover:border-brand-purple/30 hover:shadow-[0_30px_60px_rgba(123,44,191,0.1)] transition-all duration-500 hover:-translate-y-2">
+              <div className="w-16 h-16 bg-purple-50 rounded-2xl text-[#7B2CBF] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                <HeartPulse size={36} strokeWidth={1.5} />
+              </div>
+              <h4 className="font-black text-brand-dark text-xl mb-3 tracking-tight">Atención Humana</h4>
+              <p className="text-slate-500 text-sm leading-relaxed font-medium">
+                Trato cercano y personalizado de la mano de la especialista Ximena Alvarado, priorizando tu bienestar.
+              </p>
+            </div>
+
+            {/* Valor 3: Resultados Reales */}
+            <div className="group p-8 bg-white rounded-4xl shadow-[0_20px_50px_rgba(0,0,0,0.04)] border border-slate-100 hover:border-blue-200 hover:shadow-[0_30px_60px_rgba(59,130,246,0.1)] transition-all duration-500 hover:-translate-y-2">
+              <div className="w-16 h-16 bg-blue-50 rounded-2xl text-blue-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                <Star size={36} strokeWidth={1.5} />
+              </div>
+              <h4 className="font-black text-brand-dark text-xl mb-3 tracking-tight">Resultados Reales</h4>
+              <p className="text-slate-500 text-sm leading-relaxed font-medium">
+                Cientos de pacientes satisfechos con tratamientos indoloros, efectivos y garantizados desde la primera cita.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
       
+      {/* SECCIÓN 3: QUIROPODIA */}
       <section className="py-24 bg-white relative overflow-hidden">
-        {/* Fondo decorativo minimalista */}
         <div className="absolute top-0 right-0 w-1/2 h-full bg-slate-50/50 -skew-x-12 translate-x-20 z-0" />
         
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-            
             {/* 1. Lado Izquierdo: Información Compacta y Elegante */}
             <div className="w-full lg:w-[35%] space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-100">
@@ -183,96 +167,109 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
             
-      <section className="py-24 bg-linear-to-br from-[#0F172A] via-[#0F172A] to-[#064E3B] text-white relative overflow-hidden">
-        {/* Círculos decorativos de fondo: Morado para el inicio azul y Verde para el final oscuro */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#7B2CBF]/20 rounded-full -mr-20 -mt-20 blur-[120px]"></div>
-        <div className="absolute bottom-0 left-0 w-125 h-125 bg-[#25D366]/10 rounded-full -ml-32 -mb-32 blur-[130px]"></div>
-        
+      {/* SECCIÓN 4: HIGIENE Y SEGURIDAD - Estilo Clínico Pulcro */}
+      <section className="py-24 bg-slate-50 relative overflow-hidden">
+        {/* Decoración técnica sutil: una malla de puntos o líneas que evoque precisión */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+            style={{ backgroundImage: 'radial-gradient(#475569 1px, transparent 1px)', backgroundSize: '30px 30px' }}>
+        </div>
+
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-16">
             
-            {/* Texto Descriptivo */}
+            {/* Texto Descriptivo - Ahora en Slate oscuro para legibilidad profesional */}
             <div className="max-w-xl text-center lg:text-left">
-              <h2 className="text-3xl md:text-5xl font-black mb-8 leading-tight">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100 mb-6">
+                <span className="text-emerald-600 font-black uppercase tracking-[0.2em] text-[10px]">Protocolos de Grado Médico</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-8 leading-tight tracking-tighter">
                 Tu salud comienza con <br />
-                <span className="text-green-600">nuestra higiene</span>
+                <span className="text-[#25D366]">nuestra higiene.</span>
               </h2>
-              <p className="text-slate-400 text-lg leading-relaxed font-medium">
-                En el Centro Podológico Ximena Alvarado, utilizamos instrumental especializado, 
-                <span className="text-white font-semibold"> empacado y esterilizado </span> 
-                individualmente para cada paciente. Nuestros estrictos protocolos garantizan un ambiente libre de infecciones.
+              <p className="text-slate-500 text-lg leading-relaxed font-medium">
+                En el Centro Podológico Ximena Alvarado, la seguridad no es negociable. Utilizamos instrumental especializado, 
+                <span className="text-slate-900 font-bold"> empacado y esterilizado </span> 
+                individualmente bajo estrictas normas de bioseguridad.
               </p>
             </div>
 
-            {/* Tarjetas con Efecto Glassmorphism */}
-            <div className="grid grid-cols-2 gap-6 w-full lg:w-auto">
+            {/* Tarjetas Minimalistas - Sin Glassmorphism pesado, solo limpieza */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full lg:w-auto">
               {/* Tarjeta 1: Estéril */}
-              <div className="p-8 bg-white/5 backdrop-blur-md rounded-[40px] border border-white/10 text-center group hover:border-[#7B2CBF]/50 transition-all duration-500 hover:-translate-y-2 hover:bg-white/10">
-                <div className="w-16 h-16 bg-[#7B2CBF]/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-[#7B2CBF] transition-colors shadow-lg shadow-purple-500/20">
-                  <span className="text-3xl">🛡️</span>
+              <div className="p-10 bg-white rounded-[40px] border border-slate-200/60 shadow-sm transition-all duration-500 hover:shadow-xl hover:shadow-emerald-500/5 group">
+                <div className="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <ShieldCheck size={28} className="text-[#25D366]" />
                 </div>
-                <span className="text-[11px] uppercase font-black tracking-[0.3em] text-white/90">100% Estéril</span>
-                <p className="text-[10px] text-slate-500 mt-2 font-bold uppercase">Protocolos Clase B</p>
+                <h4 className="text-slate-900 font-black text-sm uppercase tracking-widest mb-2">100% Estéril</h4>
+                <p className="text-slate-400 text-[11px] font-bold uppercase tracking-tighter leading-tight">
+                  Autoclave Clase B <br /> Instrumental Sellado
+                </p>
               </div>
 
               {/* Tarjeta 2: Tecnología */}
-              <div className="p-8 bg-white/5 backdrop-blur-md rounded-[40px] border border-white/10 text-center group hover:border-[#25D366]/50 transition-all duration-500 hover:-translate-y-2 hover:bg-white/10">
-                <div className="w-16 h-16 bg-[#25D366]/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-[#25D366] transition-colors shadow-lg shadow-green-500/20">
-                  <span className="text-3xl">🔬</span>
+              <div className="p-10 bg-white rounded-[40px] border border-slate-200/60 shadow-sm transition-all duration-500 hover:shadow-xl hover:shadow-indigo-500/5 group">
+                <div className="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Activity size={28} className="text-[#7B2CBF]" />
                 </div>
-                <span className="text-[11px] uppercase font-black tracking-[0.3em] text-white/90">Tecnología</span>
-                <p className="text-[10px] text-slate-500 mt-2 font-bold uppercase">Alta Precisión</p>
+                <h4 className="text-slate-900 font-black text-sm uppercase tracking-widest mb-2">Tecnología</h4>
+                <p className="text-slate-400 text-[11px] font-bold uppercase tracking-tighter leading-tight">
+                  Diagnóstico Digital <br /> Alta Precisión
+                </p>
               </div>
             </div>
-
           </div>
         </div>
       </section>
       
-      <section className="py-24 bg-white relative overflow-hidden">
-        {/* Decoración de fondo */}
-        <div className="absolute top-1/2 left-0 w-64 h-64 bg-[#7B2CBF]/10 rounded-full blur-[100px] -translate-x-1/2"></div>
-        
-        <div className="max-w-6xl mx-auto px-6">
-          {/* Contenedor con el nuevo degradado profundo */}
-          <div className="relative bg-linear-to-br from-[#a3f5b7] via-[#a7c5b6] to-[#73857e] rounded-[60px] p-12 lg:p-24 text-center overflow-hidden shadow-[0_50px_100px_-20px_rgba(123,44,191,0.5)] border border-white/10">
+      {/* SECCIÓN 5: CTA FINAL - Estilo "Open Canvas" Light Premium */}
+      <section className="relative py-32 bg-white overflow-hidden">
+        {/* Elementos decorativos de fondo (Sutiles gradientes de limpieza) */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-linear-to-r from-transparent via-slate-200 to-transparent"></div>
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-[#7B2CBF]/5 rounded-full blur-[120px]"></div>
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-[#25D366]/5 rounded-full blur-[120px]"></div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
+          <div className="space-y-10">
             
-            <div className="relative z-10 space-y-10">
-              <div className="space-y-4">
-                <h2 className="text-4xl lg:text-7xl font-black text-white leading-[0.9] tracking-tighter">
-                  ¿Listo para caminar <br /> 
-                  <span className="text-green-600 italic">sin dolor?</span>
-                </h2>
-                <div className="w-24 h-1.5 bg-[#25D366] mx-auto rounded-full"></div>
-              </div>
+            {/* Badge de Autoridad - Ahora con contraste sutil */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 bg-slate-50">
+              <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse"></span>
+              <span className="text-slate-500 text-[10px] font-black uppercase tracking-[0.3em]">Citas Disponibles • San José</span>
+            </div>
 
-              <p className="text-purple-50 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                No dejes que una molestia se convierta en una patología. Agenda tu cita de quiropodia con la especialista Ximena Alvarado.
+            {/* Título de gran escala - Texto en Slate-900 para máxima legibilidad */}
+            <h2 className="text-5xl md:text-8xl lg:text-9xl font-black text-slate-900 leading-[0.85] tracking-tighter">
+              Recupere el placer <br />
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-[#7B2CBF] to-[#9D4EDD] italic">de caminar.</span>
+            </h2>
+
+            {/* Subtexto refinado - Color suavizado para no competir con el título */}
+            <p className="text-slate-500 text-lg md:text-xl max-w-2xl mx-auto font-medium leading-relaxed">
+              No permita que una molestia limite su movilidad. Inicie su tratamiento clínico con la <span className="text-slate-900 font-bold">Especialista Ximena Alvarado</span> y note la diferencia desde la primera sesión.
+            </p>
+
+            {/* Botón de Acción Principal - Manteniendo el verde para "Call to Action" */}
+            <div className="pt-10 flex flex-col items-center gap-6">
+              <a 
+                href="https://wa.me/50662500117"
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group relative inline-flex items-center justify-center px-16 py-8 rounded-full bg-[#25D366] text-white font-black text-xl uppercase tracking-tighter transition-all duration-500 hover:scale-105 hover:bg-[#1eb954] shadow-[0_20px_50px_rgba(37,211,102,0.25)]"
+              >
+                <span className="relative z-10 flex items-center gap-4">
+                  Agendar Valoración Médica
+                  <span className="group-hover:translate-x-2 transition-transform duration-300">→</span>
+                </span>
+              </a>
+              
+              {/* Leyenda de confianza - Espaciado de letras para toque técnico */}
+              <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.4em]">
+                Atención Profesional e Indolora
               </p>
-
-              <div className="pt-6">
-                <a 
-                  href="https://wa.me/50662500117"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-6 bg-[#25D366] text-white! px-14 py-7 rounded-full font-black text-xl uppercase tracking-tighter hover:bg-[#1eb954] hover:scale-105 transition-all duration-500 shadow-xl border-none"
-                  style={{ color: '#FFFFFF' }}
-                >
-                  <span className="flex items-center gap-4">
-                    RESERVAR MI CITA AHORA
-                    <span className="text-2xl">→</span>
-                  </span>
-                </a>
-              </div>
-
-              <div className="pt-4 text-white/40 font-bold uppercase tracking-[0.3em] text-[10px]">
-                Ubicación: San José, Costa Rica
-              </div>
             </div>
           </div>
         </div>
