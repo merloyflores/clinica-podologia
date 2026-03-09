@@ -99,7 +99,11 @@ export default function Footer() {
           <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest flex items-center gap-2">
             Diseñado por 
             <a 
+<<<<<<< HEAD
               href="https://nexflow-portfolio.vercel.app/" // O la URL de tu portafolio
+=======
+              href="https://nexflow-digital.vercel.app" // O la URL de tu portafolio
+>>>>>>> 0dbed1acb7cc9869935a5053b9f2ef5db9410e7f
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-slate-500 border-b border-slate-700 font-black hover:text-[#7B2CBF] hover:border-[#7B2CBF] transition-all duration-300"
