@@ -110,7 +110,7 @@ const tratamientos = [
         longDesc: "Aplicación de resina especializada para reconstruir visualmente una uña dañada. Es un procedimiento estético temporal para eventos o periodos de 15 días.",
         benefits: ["Estética inmediata", "Uña con aspecto natural", "Ideal para eventos"],
         price: "₡16,000",
-        img: "/images/servicios/Reconstrucción-Ungueal.jfif",
+        img: "/images/servicios/Reconstruccion-Ungueal.jfif",
         tag: "Cosmética Clínica"
       }
     ]
