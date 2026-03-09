@@ -41,9 +41,8 @@ export default function Footer() {
             <h4 className="text-white font-black text-sm uppercase tracking-widest mb-8">Horario de Atención</h4>
             <ul className="space-y-4">
               {[
-                { days: "Lunes a Viernes", time: "8:00 AM - 6:00 PM" },
-                { days: "Sábados", time: "9:00 AM - 2:00 PM" },
-                { days: "Domingos", time: "Cerrado" }
+                { days: "Martes a Domingo", time: "7:00 AM - 4:00 PM" },
+                { days: "Lunes", time: "Cerrado" }
               ].map((item, i) => (
                 <li key={i} className="flex flex-col">
                   <span className="text-[10px] font-black uppercase text-slate-500 tracking-wider">{item.days}</span>
