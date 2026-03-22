@@ -1,9 +1,13 @@
 'use client';
 
+import { useState } from 'react'; // AÑADIDO
 import { Microscope, ShieldCheck, Stethoscope, Footprints, Activity, Thermometer, Syringe, Clock } from 'lucide-react';
 import Image from 'next/image';
+import ModalReserva from '../components/ModalReserva'; // Asegúrate de crear este archivo (paso 3)
 
 export default function QuiropodiaDetallada() {
+  const [isModalOpen, setIsModalOpen] = useState(false); // AÑADIDO: Estado del modal
+
   const pilares = [
     {
       title: "Diagnóstico Clínico Integral",
@@ -35,7 +39,7 @@ export default function QuiropodiaDetallada() {
     <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         
-        {/* 1. ENCABEZADO: Autoridad Médica */}
+        {/* 1. ENCABEZADO */}
         <div className="max-w-4xl mb-20">
           <h3 className="text-[#25D366] font-black uppercase tracking-[0.3em] text-[10px] mb-4">Especialidad en Quiropodología</h3>
           <h2 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter leading-[0.9] mb-8">
@@ -60,10 +64,9 @@ export default function QuiropodiaDetallada() {
           </div>
         </div>
 
-        {/* 2. CONTENIDO PRINCIPAL: Equilibrio Visual */}
+        {/* 2. CONTENIDO PRINCIPAL */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           
-          {/* Lado Izquierdo: Los 4 Pilares del Tratamiento */}
           <div className="lg:col-span-7">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {pilares.map((pilar, i) => (
@@ -81,7 +84,6 @@ export default function QuiropodiaDetallada() {
               ))}
             </div>
 
-            {/* Beneficio Extra: Salud Postural */}
             <div className="mt-8 p-10 bg-slate-900 rounded-[50px] text-white flex flex-col md:flex-row items-center gap-8">
               <div className="w-20 h-20 shrink-0 bg-[#7B2CBF]/20 rounded-3xl flex items-center justify-center">
                 <Footprints size={40} className="text-[#7B2CBF]" />
@@ -95,7 +97,6 @@ export default function QuiropodiaDetallada() {
             </div>
           </div>
 
-          {/* Lado Derecho: La Especialista (Sticky) */}
           <div className="lg:col-span-5 relative">
             <div className="lg:sticky lg:top-32 space-y-6">
               <div className="relative rounded-[60px] overflow-hidden shadow-2xl group border-[6px] border-white">
@@ -119,7 +120,6 @@ export default function QuiropodiaDetallada() {
                 </div>
               </div>
 
-              {/* Nueva Tarjeta de Confianza Sutil */}
               <div className="p-8 bg-white border border-slate-100 rounded-[40px] shadow-sm flex items-center justify-between">
                 <div className="flex -space-x-3">
                   {[1,2,3,4].map(i => (
@@ -134,17 +134,23 @@ export default function QuiropodiaDetallada() {
                 </div>
               </div>
 
-              {/* Botón de Acción Integrado */}
+              {/* BOTÓN ACTUALIZADO */}
               <button 
+                onClick={() => setIsModalOpen(true)} // AÑADIDO
                 className="w-full bg-slate-950 text-white py-6 rounded-full font-black uppercase tracking-tighter hover:bg-[#7B2CBF] transition-all duration-300 shadow-xl"
               >
                 Reservar Valoración Clínica
               </button>
             </div>
           </div>
-
         </div>
       </div>
+
+      {/* MODAL INTEGRADO */}
+      <ModalReserva 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </section>
   );
 }
