@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { Star, CheckCircle2, MessageCircle, ArrowRight } from 'lucide-react';
+import { WhatsApp } from '@mui/icons-material';
 
 const casos = [
   {
@@ -115,7 +116,7 @@ export default function SeccionResultados() {
 
         {/* CTA FINAL DE REMATE */}
         <div className="text-center">
-          <div className="inline-block p-1 bg-slate-900 rounded-[40px] max-w-4xl w-full overflow-hidden shadow-2xl shadow-purple-500/20">
+          <div className="inline-block p-1 bg-slate-900 rounded-[40px] w-full overflow-hidden shadow-2xl shadow-purple-500/20">
             <div className="p-12 md:p-20 bg-slate-900 rounded-[36px] flex flex-col items-center border border-slate-800">
               <h2 className="text-3xl md:text-6xl font-black text-white tracking-tighter mb-8">
                 ¿Listo para caminar <br/> <span className="text-[#7B2CBF] italic">sin dolor?</span>
@@ -125,9 +126,9 @@ export default function SeccionResultados() {
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
                 <a href="https://wa.me/50662500117" className="bg-[#25D366] text-white px-10 py-5 rounded-2xl font-black uppercase text-xs tracking-widest flex items-center gap-3 hover:scale-105 transition-all">
-                  Agendar por WhatsApp <MessageCircle size={18} />
+                  Agendar por WhatsApp <WhatsApp sx={{ fontSize: 18 }} />
                 </a>
-                <a href="tel:50662500117" className="bg-white text-slate-900 px-10 py-5 rounded-2xl font-black uppercase text-xs tracking-widest flex items-center gap-3 border border-slate-200 hover:bg-slate-50 transition-all">
+                <a href="tel:50662500117" className="bg-white text-slate-900 px-10 py-5 rounded-2xl font-black uppercase text-xs tracking-widest flex items-center gap-3 border border-slate-200 hover:bg-slate-50 hover:scale-105 transition-all">
                   Llamar ahora <ArrowRight size={18} />
                 </a>
               </div>

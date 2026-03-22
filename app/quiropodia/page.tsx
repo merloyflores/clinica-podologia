@@ -129,7 +129,7 @@ export default function QuiropodiaDetallada() {
                   ))}
                 </div>
                 <div className="text-right">
-                  <p className="text-slate-900 font-black text-lg">+500</p>
+                  <p className="text-slate-900 font-black text-lg">+200</p>
                   <p className="text-[9px] text-slate-400 uppercase font-bold tracking-widest">Pacientes Satisfechos</p>
                 </div>
               </div>

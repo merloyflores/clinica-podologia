@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Phone, Instagram, Facebook, Menu, X } from 'lucide-react';
+import { WhatsApp } from '@mui/icons-material';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,10 +35,13 @@ export default function Navbar() {
         <div className="flex gap-5 items-center">
           <span className="text-slate-500 hidden md:block">Síguenos en redes:</span>
           <a href="https://facebook.com/XimenaAlvaradoQuiropodista/" target="_blank" rel="noopener noreferrer">
-            <Facebook size={14} className="hover:text-[#7B2CBF] cursor-pointer transition-colors" />
+            <Facebook size={14} className="hover:text-blue-600 cursor-pointer transition-colors" />
           </a>
           <a href="https://instagram.com/centropd_ximena.alvarado/" target="_blank" rel="noopener noreferrer">
-            <Instagram size={14} className="hover:text-[#7B2CBF] cursor-pointer transition-colors" />
+            <Instagram size={14} className="hover:text-pink-600 cursor-pointer transition-colors" />
+          </a>
+          <a href="https://wa.me/50662500117" target="_blank" rel="noopener noreferrer">
+            <WhatsApp sx={{ fontSize: 14 }} className="hover:text-green-600 cursor-pointer transition-colors" />
           </a>
         </div>
       </div>
@@ -46,10 +50,10 @@ export default function Navbar() {
       <nav className="bg-white/95 backdrop-blur-md border-b border-slate-100 px-6 lg:px-20 py-4 flex justify-between items-center relative">
         <Link href="/" className="z-50 hover:opacity-80 transition-opacity">
           <Image 
-            src="/images/LogoCompleto.png" 
+            src="/images/LogoNavBar.png" 
             alt="Logo Ximena Alvarado" 
-            width={220} 
-            height={60} 
+            width={240} 
+            height={80} 
             className="h-9 md:h-11 w-auto object-contain"
           />
         </Link>
