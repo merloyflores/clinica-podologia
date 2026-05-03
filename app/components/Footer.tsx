@@ -15,7 +15,7 @@ export default function Footer() {
           <div className="lg:col-span-1 flex flex-col items-center lg:items-start">
             <div className="mb-6">
               <Image 
-                src="/images/LogoNavBar.png" 
+                src="/images/logonavbar.png" 
                 alt="Logo Ximena Alvarado" 
                 width={180} 
                 height={60}

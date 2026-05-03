@@ -5,7 +5,7 @@ import { Phone, MapPin,Lock, Clock, MessageCircle, Navigation, ChevronRight } fr
 
 export default function SeccionContactenos() {
   return (
-    <section id="contactenos" className="py-32 bg-white">
+    <section id="contactenos" className="py-42 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">

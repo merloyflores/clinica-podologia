@@ -10,8 +10,8 @@ const casos = [
     paciente: "Paciente recurrente",
     diagnostico: "Uña encarnada grado II con inflamación severa.",
     resultado: "Extracción de espícula y recuperación total en 7 días.",
-    imgAntes: "/images/resultados/Antes1.png",
-    imgDespues: "/images/resultados/Despues1.png",
+    imgAntes: "/images/resultados/antes1.png",
+    imgDespues: "/images/resultados/despues1.png",
     tag: "Cirugía Menor"
   },
   {
@@ -19,8 +19,8 @@ const casos = [
     paciente: "Tratamiento 6 meses",
     diagnostico: "Infección fúngica crónica en 4 láminas ungueales.",
     resultado: "Limpieza total de hongo con protocolo de Ácido Nítrico.",
-    imgAntes: "/images/resultados/Antes.jpg",
-    imgDespues: "/images/resultados/Despues.jpg",
+    imgAntes: "/images/resultados/antes.jpg",
+    imgDespues: "/images/resultados/despues.jpg",
     tag: "Protocolo Clínico"
   }
 ];
@@ -40,7 +40,7 @@ const testimonios = [
 
 export default function SeccionResultados() {
   return (
-    <section className="py-24 bg-white overflow-hidden">
+    <section className="py-44 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Cabecera de Resultados */}
@@ -114,24 +114,47 @@ export default function SeccionResultados() {
           </div>
         </div>
 
-        {/* CTA FINAL DE REMATE */}
+        {/* CTA FINAL DE REMATE - NIVEL PRO */}
         <div className="text-center">
-          <div className="inline-block p-1 bg-slate-900 rounded-[40px] w-full overflow-hidden shadow-2xl shadow-purple-500/20">
-            <div className="p-12 md:p-20 bg-slate-900 rounded-[36px] flex flex-col items-center border border-slate-800">
-              <h2 className="text-3xl md:text-6xl font-black text-white tracking-tighter mb-8">
-                ¿Listo para caminar <br/> <span className="text-[#7B2CBF] italic">sin dolor?</span>
+          <div className="inline-block p-0.5 bg-linear-to-b from-slate-700 to-slate-900 rounded-[42px] w-full overflow-hidden shadow-2xl shadow-purple-500/10">
+            <div className="p-12 md:p-24 bg-slate-950 rounded-[40px] flex flex-col items-center relative overflow-hidden">
+              
+              {/* Decoración de fondo sutil */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,#7B2CBF15_0%,transparent_70%)] pointer-events-none" />
+
+              <span className="text-[#7B2CBF] text-[10px] font-black uppercase tracking-[0.4em] mb-6 relative z-10">
+                Recupere su bienestar hoy
+              </span>
+
+              <h2 className="text-4xl md:text-7xl font-black text-white tracking-tighter mb-8 leading-[0.9] relative z-10">
+                Vuelva a caminar <br/> 
+                <span className="bg-clip-text text-transparent bg-linear-to-r from-[#7B2CBF] to-purple-400 italic">
+                  con total libertad.
+                </span>
               </h2>
-              <p className="text-slate-400 font-medium mb-12 max-w-lg">
-                Agende su valoración hoy mismo. Atendemos emergencias y citas de mantenimiento preventivo.
+
+              <p className="text-slate-400 text-lg md:text-xl font-medium mb-12 max-w-2xl leading-relaxed relative z-10">
+                No permita que una molestia se convierta en una limitación. Agende su valoración con la <span className="text-white font-bold">Especialista Ximena Alvarado</span> y reciba atención profesional inmediata.
               </p>
-              <div className="flex flex-col sm:flex-row gap-6">
-                <a href="https://wa.me/50662500117" className="bg-[#25D366] text-white px-10 py-5 rounded-2xl font-black uppercase text-xs tracking-widest flex items-center gap-3 hover:scale-105 transition-all">
-                  Agendar por WhatsApp <WhatsApp sx={{ fontSize: 18 }} />
+
+              <div className="flex flex-col sm:flex-row gap-5 w-full max-w-2xl relative z-10">
+                <a 
+                  href="https://wa.me/50662500117" 
+                  className="flex-1 bg-[#25D366] text-white px-12 py-6 rounded-2xl font-black uppercase text-[11px] tracking-[0.2em] flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-green-500/20"
+                >
+                  Agendar por WhatsApp <WhatsApp sx={{ fontSize: 20 }} />
                 </a>
-                <a href="tel:50662500117" className="bg-white text-slate-900 px-10 py-5 rounded-2xl font-black uppercase text-xs tracking-widest flex items-center gap-3 border border-slate-200 hover:bg-slate-50 hover:scale-105 transition-all">
-                  Llamar ahora <ArrowRight size={18} />
+                <a 
+                  href="tel:50662500117" 
+                  className="flex-1 bg-white text-slate-950 px-12 py-6 rounded-2xl font-black uppercase text-[11px] tracking-[0.2em] flex items-center justify-center gap-3 hover:bg-slate-50 hover:scale-[1.02] active:scale-95 transition-all border-b-4 border-slate-200"
+                >
+                  Llamar ahora <ArrowRight size={20} />
                 </a>
               </div>
+
+              <p className="mt-8 text-slate-500 text-[10px] font-bold uppercase tracking-widest opacity-60">
+                Atención Martes a Domingo • Sabana Norte, San José
+              </p>
             </div>
           </div>
         </div>

@@ -50,7 +50,7 @@ export default function Navbar() {
       <nav className="bg-white/95 backdrop-blur-md border-b border-slate-100 px-6 lg:px-20 py-4 flex justify-between items-center relative">
         <Link href="/" className="z-50 hover:opacity-80 transition-opacity">
           <Image 
-            src="/images/LogoNavBar.png" 
+            src="/images/logoNavBar.png" 
             alt="Logo Ximena Alvarado" 
             width={240} 
             height={80} 

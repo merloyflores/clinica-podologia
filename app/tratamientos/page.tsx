@@ -37,7 +37,7 @@ const tratamientos = [
         longDesc: "Tratamiento de alta eficacia basado en la aplicación de Ácido Nítrico para eliminar esporas de hongos en la lámina ungueal. Es un proceso controlado que no afecta el tejido sano y permite que la uña nueva crezca sana.",
         benefits: ["Eficacia probada", "Sin efectos secundarios", "Seguimiento experto"],
         price: "₡25,000",
-        img: "/images/servicios/Onicomicosis.jfif",
+        img: "/images/servicios/onicomicosis.jfif",
         tag: "Tratamiento Clínico"
       },
       {
@@ -46,7 +46,7 @@ const tratamientos = [
         longDesc: "Cauterización química especializada para eliminar el tejido infectado por el virus del papiloma. Incluye pedicura clínica para asegurar que la piel circundante esté sana y libre de virus.",
         benefits: ["Eliminación de raíz", "Evita el contagio", "Higiene integral"],
         price: "₡24,000",
-        img: "/images/servicios/Verrugas-Plantares.jfif",
+        img: "/images/servicios/verrugas-plantares.jfif",
         tag: "Higiene + Salud"
       },
       {
@@ -55,7 +55,7 @@ const tratamientos = [
         longDesc: "Drenaje profesional y asepsia profunda en focos infecciosos agudos. Limpiamos el área para aliviar la presión y el dolor punzante, aplicando el protocolo necesario para la recuperación.",
         benefits: ["Drenaje seguro", "Alivio del dolor", "Control bacteriano"],
         price: "₡20,000",
-        img: "/images/servicios/Onicomiquia.jfif",
+        img: "/images/servicios/onicomiquia.jfif",
         tag: "Atención de Urgencia"
       }
     ]
@@ -101,7 +101,7 @@ const tratamientos = [
         longDesc: "El mantenimiento ideal para mantener pies sanos. Incluye corte técnico de uñas, fresado de la planta del pie e hidratación profunda.",
         benefits: ["Prevención", "Piel suave", "Salud podológica"],
         price: "₡20,000",
-        img: "/images/servicios/Pedicura-Clínica.png",
+        img: "/images/servicios/pedicuraclínica.png",
         tag: "Mantenimiento"
       },
       {
@@ -110,7 +110,7 @@ const tratamientos = [
         longDesc: "Aplicación de resina especializada para reconstruir visualmente una uña dañada. Es un procedimiento estético temporal para eventos o periodos de 15 días.",
         benefits: ["Estética inmediata", "Uña con aspecto natural", "Ideal para eventos"],
         price: "₡16,000",
-        img: "/images/servicios/Reconstruccion-Ungueal.jfif",
+        img: "/images/servicios/reconstruccion-ungueal.jfif",
         tag: "Cosmética Clínica"
       }
     ]
@@ -121,7 +121,7 @@ export default function SeccionTratamientos() {
   const [selectedService, setSelectedService] = useState<any>(null);
 
   return (
-    <section className="py-24 bg-slate-50 relative">
+    <section className="py-44 bg-slate-50 relative">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Encabezado de Sección */}
@@ -200,7 +200,7 @@ export default function SeccionTratamientos() {
         </div>
 
         {/* Remate: Pedicura Clínica */}
-        <div className="mt-24 p-12 bg-slate-900 rounded-[60px] text-white overflow-hidden relative">
+        <div className="mt-24 p-12 bg-slate-900 rounded-2xl text-white overflow-hidden relative">
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#25D366]/10 rounded-full blur-3xl"></div>
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10">
             <div className="text-center lg:text-left">
