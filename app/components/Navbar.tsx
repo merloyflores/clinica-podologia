@@ -23,7 +23,7 @@ export default function Navbar() {
   const hoverColor = "hover:text-[#7B2CBF]";
 
   return (
-    <header className="fixed w-full top-0 z-50 transition-all duration-300 shadow-lg">
+    <header className="fixed w-full top-0 z-100 transition-all duration-300 shadow-lg">
       {/* 1. TOP BAR - Ahora en tono con el Footer (Slate 900) */}
       <div className="bg-slate-900 text-slate-300 py-2 px-6 lg:px-20 hidden sm:flex justify-between items-center text-[10px] uppercase tracking-[0.2em] font-black border-b border-slate-800">
         <div className="flex gap-6">
@@ -50,7 +50,7 @@ export default function Navbar() {
       <nav className="bg-white/95 backdrop-blur-md border-b border-slate-100 px-6 lg:px-20 py-4 flex justify-between items-center relative">
         <Link href="/" className="z-50 hover:opacity-80 transition-opacity">
           <Image 
-            src="/images/logoNavBar.png" 
+            src="/images/logonavbar.png" 
             alt="Logo Ximena Alvarado" 
             width={240} 
             height={80} 

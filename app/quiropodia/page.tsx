@@ -101,7 +101,7 @@ export default function QuiropodiaDetallada() {
             <div className="lg:sticky lg:top-32 space-y-6">
               <div className="relative rounded-[60px] overflow-hidden shadow-2xl group border-[6px] border-white">
                 <Image 
-                  src="/images/XimenaFotoPerfil.jpeg"
+                  src="/images/ximenafotoperfil.jpeg"
                   alt="Ximena Alvarado en consulta"
                   width={600}
                   height={800}

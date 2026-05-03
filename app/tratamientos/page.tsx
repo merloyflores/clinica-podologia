@@ -121,7 +121,7 @@ export default function SeccionTratamientos() {
   const [selectedService, setSelectedService] = useState<any>(null);
 
   return (
-    <section className="py-44 bg-slate-50 relative">
+    <section className="py-44 bg-white relative">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Encabezado de Sección */}

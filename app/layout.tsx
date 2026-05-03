@@ -1,12 +1,7 @@
 import './globals.css'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import BotonWhatsApp from './components/BotonWhatsApp' // 1. Importamos el nuevo componente
-
-export const metadata = {
-  title: 'Ximena Alvarado | Quiropodía Profesional',
-  description: 'Especialista en salud ungueal y pie diabético en San José, Costa Rica.',
-}
+import BotonWhatsApp from "./components/BotonWhatsApp"
+import Footer from "./components/Footer"
+import Navbar from "./components/Navbar"
 
 export default function RootLayout({
   children,
@@ -15,17 +10,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className="scroll-smooth">
-      <body>
-        <Navbar />
-        
-        {children}
-        
-        {/* 2. Lo colocamos aquí para que flote sobre todo el contenido */}
-        <BotonWhatsApp />
+      <body className="min-h-screen flex flex-col">
+        {/* Este div relativo controla el área de movimiento del botón */}
+        <div className="relative flex flex-col grow pb-10"> 
+          <Navbar />
+          <main className="grow">{children}</main>
+          <BotonWhatsApp />
+        </div>
         
         <Footer />
       </body>
     </html>
   )
 }
-

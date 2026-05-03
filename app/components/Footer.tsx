@@ -15,7 +15,7 @@ export default function Footer() {
           <div className="lg:col-span-1 flex flex-col items-center lg:items-start">
             <div className="mb-6">
               <Image 
-                src="/images/logonavbar.png" 
+                src="/images/logonavbar.PNG" 
                 alt="Logo Ximena Alvarado" 
                 width={180} 
                 height={60}
@@ -57,7 +57,7 @@ export default function Footer() {
               <div className="flex flex-col lg:flex-row items-center lg:items-start gap-3 group">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#7B2CBF] lg:mt-1.5 animate-pulse shadow-[0_0_8px_#7B2CBF]"></div>
                 <p className="text-[11px] font-bold text-slate-400 leading-relaxed tracking-wide uppercase italic">
-                  Atención exclusiva <span className="text-white font-black">bajo cita previa</span> para garantizar su espacio.
+                  Atención exclusiva <span className="text-white font-black">con cita previa</span> para garantizar su espacio.
                 </p>
               </div>
             </div>

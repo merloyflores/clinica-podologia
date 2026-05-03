@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { Star, CheckCircle2, MessageCircle, ArrowRight } from 'lucide-react';
-import { WhatsApp } from '@mui/icons-material';
+import { Call, WhatsApp } from '@mui/icons-material';
 
 const casos = [
   {
@@ -140,15 +140,15 @@ export default function SeccionResultados() {
               <div className="flex flex-col sm:flex-row gap-5 w-full max-w-2xl relative z-10">
                 <a 
                   href="https://wa.me/50662500117" 
-                  className="flex-1 bg-[#25D366] text-white px-12 py-6 rounded-2xl font-black uppercase text-[11px] tracking-[0.2em] flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-green-500/20"
+                  className="flex-1 bg-[#25D366] text-white px-12 py-6 rounded-2xl font-black uppercase text-[13px] tracking-[0.2em] flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-green-500/20"
                 >
-                  Agendar por WhatsApp <WhatsApp sx={{ fontSize: 20 }} />
+                  <WhatsApp sx={{ fontSize: 26 }} /> Agendar por WhatsApp
                 </a>
                 <a 
                   href="tel:50662500117" 
-                  className="flex-1 bg-white text-slate-950 px-12 py-6 rounded-2xl font-black uppercase text-[11px] tracking-[0.2em] flex items-center justify-center gap-3 hover:bg-slate-50 hover:scale-[1.02] active:scale-95 transition-all border-b-4 border-slate-200"
+                  className="flex-1 bg-white text-slate-950 px-12 py-6 rounded-2xl font-black uppercase text-[13px] tracking-[0.2em] flex items-center justify-center gap-3 hover:bg-slate-50 hover:scale-[1.02] active:scale-95 transition-all border-b-4 border-slate-200"
                 >
-                  Llamar ahora <ArrowRight size={20} />
+                  <Call sx={{ fontSize: 26 }} /> Llamar ahora
                 </a>
               </div>
 
