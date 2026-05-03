@@ -37,7 +37,7 @@ const tratamientos = [
         longDesc: "Tratamiento de alta eficacia basado en la aplicación de Ácido Nítrico para eliminar esporas de hongos en la lámina ungueal. Es un proceso controlado que no afecta el tejido sano y permite que la uña nueva crezca sana.",
         benefits: ["Eficacia probada", "Sin efectos secundarios", "Seguimiento experto"],
         price: "₡25,000",
-        img: "/images/servicios/onicomicosis.jfif",
+        img: "/images/servicios/onicomicosis.JFIF",
         tag: "Tratamiento Clínico"
       },
       {
@@ -46,7 +46,7 @@ const tratamientos = [
         longDesc: "Cauterización química especializada para eliminar el tejido infectado por el virus del papiloma. Incluye pedicura clínica para asegurar que la piel circundante esté sana y libre de virus.",
         benefits: ["Eliminación de raíz", "Evita el contagio", "Higiene integral"],
         price: "₡24,000",
-        img: "/images/servicios/verrugas-plantares.jfif",
+        img: "/images/servicios/verrugas-plantares.JFIF",
         tag: "Higiene + Salud"
       },
       {
@@ -55,7 +55,7 @@ const tratamientos = [
         longDesc: "Drenaje profesional y asepsia profunda en focos infecciosos agudos. Limpiamos el área para aliviar la presión y el dolor punzante, aplicando el protocolo necesario para la recuperación.",
         benefits: ["Drenaje seguro", "Alivio del dolor", "Control bacteriano"],
         price: "₡20,000",
-        img: "/images/servicios/onicomiquia.jfif",
+        img: "/images/servicios/onicomiquia.JFIF",
         tag: "Atención de Urgencia"
       }
     ]
@@ -78,7 +78,7 @@ const tratamientos = [
         longDesc: "Cuidado clínico para pies con callosidades extremas, grietas o uñas con malformaciones bajo protocolos estrictos de bioseguridad para evitar cualquier herida comprometida.",
         benefits: ["Protocolo de bioseguridad", "Técnicas no invasivas", "Cuidado experto"],
         price: "₡27,000",
-        img: "/images/servicios/pie_diabetico.jfif",
+        img: "/images/servicios/pie_diabetico.JFIF",
         tag: "Cuidado Avanzado"
       }
     ]
@@ -110,7 +110,7 @@ const tratamientos = [
         longDesc: "Aplicación de resina especializada para reconstruir visualmente una uña dañada. Es un procedimiento estético temporal para eventos o periodos de 15 días.",
         benefits: ["Estética inmediata", "Uña con aspecto natural", "Ideal para eventos"],
         price: "₡16,000",
-        img: "/images/servicios/reconstruccion-ungueal.jfif",
+        img: "/images/servicios/reconstruccion-ungueal.JFIF",
         tag: "Cosmética Clínica"
       }
     ]
