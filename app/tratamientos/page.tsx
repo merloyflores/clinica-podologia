@@ -78,7 +78,7 @@ const tratamientos = [
         longDesc: "Cuidado clínico para pies con callosidades extremas, grietas o uñas con malformaciones bajo protocolos estrictos de bioseguridad para evitar cualquier herida comprometida.",
         benefits: ["Protocolo de bioseguridad", "Técnicas no invasivas", "Cuidado experto"],
         price: "₡27,000",
-        img: "/images/servicios/pie_diabetico.JFIF",
+        img: "/images/servicios/pie_diabetico.png",
         tag: "Cuidado Avanzado"
       }
     ]
