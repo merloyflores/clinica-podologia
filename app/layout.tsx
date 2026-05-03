@@ -1,4 +1,4 @@
-import './globals.css'
+import './globals.css' assert { type: 'css' };
 import BotonWhatsApp from "./components/BotonWhatsApp"
 import Footer from "./components/Footer"
 import Navbar from "./components/Navbar"

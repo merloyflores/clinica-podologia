@@ -17,17 +17,33 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  
+  /* --- AJUSTES DE ESCALA Y NITIDEZ --- */
+  /* 1. Mejora el renderizado de la fuente para que se vea más nítida y con más cuerpo */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* 2. Aumenta el interlineado para que el texto no se sienta comprimido */
+  line-height: 1.6;
+  
+  /* 3. Evita que los navegadores móviles ajusten el tamaño del texto automáticamente */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
-
 .navbar a {
-  /* Estilos predeterminados de tus enlaces (ej. color negro) */
+  /* Estilos predeterminados de tus enlaces */
   color: black; 
   text-decoration: none; 
-  transition: color 0.3s ease; /* Transición suave para el cambio de color */
+  transition: color 0.3s ease; 
 }
 
 .navbar a:hover {
   /* El color cambia al morado definido al pasar el mouse */
   color: var(--color-purple); 
+}
+
+/* Ajuste extra para que los elementos no crezcan hacia afuera y deformen el layout */
+* {
+  box-sizing: border-box;
 }

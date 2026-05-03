@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { X, CheckCircle2, MessageCircle } from 'lucide-react';
+import { WhatsApp } from '@mui/icons-material';
 
 const tratamientos = [
   {
@@ -69,7 +70,7 @@ const tratamientos = [
         longDesc: "Evaluación exhaustiva de sensibilidad (neuropatía) y riego sanguíneo (vasculopatía). Detectamos puntos de presión y lesiones mínimas que podrían complicarse si no se tratan a tiempo.",
         benefits: ["Prevención de úlceras", "Evaluación vascular", "Paz mental"],
         price: "₡15,000",
-        img: "/images/servicios/pie_diabetico.webp",
+        img: "/images/servicios/valoracion.jpg",
         tag: "Consulta Vital"
       },
       {
@@ -124,73 +125,119 @@ export default function SeccionTratamientos() {
     <section className="py-44 bg-white relative">
       <div className="max-w-7xl mx-auto px-6">
         
-        {/* Encabezado de Sección */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <h3 className="text-[#25D366] font-black uppercase tracking-[0.3em] text-[10px] mb-4">Portafolio de Especialidades</h3>
-          <h2 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter leading-none mb-6">
-            Soluciones Avanzadas <br />
-            <span className="text-[#7B2CBF] italic font-light">para cada patología.</span>
+      {/* Encabezado Estilo Protocolo Clínico */}
+      <div className="max-w-7xl mx-auto mb-20">
+        
+        {/* Etapa Superior: Título con Líneas Laterales */}
+        <div className="flex flex-col items-center mb-12 text-center">
+          <div className="flex items-center gap-6 mb-6">
+            <div className="w-12 md:w-20 h-px bg-slate-200"></div>
+            <h3 className="text-[#7B2CBF] font-black uppercase tracking-[0.4em] text-[10px] md:text-xs">
+              Metodología de Especialidad
+            </h3>
+            <div className="w-12 md:w-20 h-px bg-slate-200"></div>
+          </div>
+          
+          <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 tracking-tighter leading-[0.9] uppercase">
+            Tratamientos <br />
+            <span className="text-slate-500/30">Podológicos</span>
           </h2>
-          <p className="text-slate-500 font-medium">
-            Precios competitivos bajo estándares de bioseguridad hospitalaria. 
-            Su salud merece un diagnóstico profesional.
-          </p>
         </div>
 
-        {/* Listado de Categorías */}
+        {/* Grid de 2 Columnas Estilo Home */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 text-slate-500 font-medium text-lg leading-relaxed">
+          
+          {/* Columna 1: Con Acento Verde Lateral */}
+          <div className="border-l-4 border-[#25D366] pl-8 md:pl-12">
+            <p>
+              La salud de sus pies es el cimiento de su movilidad y bienestar general. En nuestro centro, bajo la dirección clínica de <strong className="text-slate-900 font-bold">Ximena Alvarado</strong>, transformamos la atención podológica tradicional en una experiencia de salud integral basada en la precisión, la bioseguridad y el alivio definitivo del dolor.
+            </p>
+          </div>
+
+          {/* Columna 2: Texto Explicativo Secundario */}
+          <div className="pt-2">
+            <p>
+              A continuación, le invitamos a explorar nuestro catálogo completo de tratamientos especializados. Hemos diseñado cada procedimiento —desde intervenciones quirúrgicas permanentes hasta protocolos preventivos para pacientes diabéticos— utilizando tecnología moderna y estándares de esterilización hospitalaria. Nuestro objetivo es que usted conozca a detalle las opciones clínicas disponibles para recuperar el placer de caminar con total confort y seguridad.
+            </p>
+          </div>
+          
+        </div>
+      </div>
+
+      {/* Listado de Categorías */}
         <div className="space-y-24">
           {tratamientos.map((categoria, idx) => (
             <div key={idx}>
-              <div className="flex items-center gap-4 mb-10">
-                <div className="h-px flex-1 bg-slate-200"></div>
-                <h4 className="text-[11px] font-black uppercase tracking-[0.4em] text-slate-400">{categoria.category}</h4>
-                <div className="h-px flex-1 bg-slate-200"></div>
+              
+              {/* Separador de Categoría Premium */}
+              <div className="flex items-center gap-6 mb-12">
+                <div className="h-px flex-1 bg-linear-to-r from-transparent via-slate-200 to-slate-200"></div>
+                <h4 className="text-[11px] font-black uppercase tracking-[0.4em] text-slate-400 bg-white px-4 py-2 border border-slate-100 rounded-full shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
+                  {categoria.category}
+                </h4>
+                <div className="h-px flex-1 bg-linear-to-l from-transparent via-slate-200 to-slate-200"></div>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Grid de Tarjetas */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10">
                 {categoria.items.map((item, i) => (
-                  <div key={i} className="group bg-white rounded-[45px] overflow-hidden flex flex-col md:flex-row border border-slate-100 hover:shadow-2xl hover:shadow-purple-500/5 transition-all duration-500">
-                    {/* Imagen */}
-                    <div className="md:w-2/5 h-64 md:h-auto relative overflow-hidden">
+                  <div 
+                    key={i} 
+                    className="group relative bg-white rounded-4xl overflow-hidden flex flex-col md:flex-row border border-slate-200/60 hover:border-[#7B2CBF]/30 hover:shadow-[0_20px_40px_-15px_rgba(123,44,191,0.15)] transition-all duration-500 hover:-translate-y-1"
+                  >
+                    
+                    {/* Imagen con Overlay y Zoom Suave */}
+                    <div className="md:w-2/5 h-64 md:h-auto relative overflow-hidden bg-slate-100">
+                      <div className="absolute inset-0 bg-slate-900/5 group-hover:bg-transparent z-10 transition-colors duration-500" />
                       <Image 
                         src={item.img} 
                         alt={item.title} 
                         fill 
-                        className="object-cover group-hover:scale-110 transition-transform duration-700" 
+                        className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out" 
                       />
-                      <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full shadow-sm">
-                        <span className="text-[9px] font-black text-[#7B2CBF] uppercase tracking-widest">{item.tag}</span>
+                      
+                      {/* Tag Estilo Glassmorphism */}
+                      <div className="absolute top-5 left-5 z-20 bg-white/85 backdrop-blur-md px-4 py-2 rounded-2xl shadow-[0_4px_10px_rgba(0,0,0,0.05)] border border-white/40">
+                        <span className="text-[9px] font-black text-[#7B2CBF] uppercase tracking-[0.2em]">
+                          {item.tag}
+                        </span>
                       </div>
                     </div>
 
-                    {/* Info */}
-                    <div className="md:w-3/5 p-8 flex flex-col justify-between">
-                      <div>
-                        <h5 className="text-2xl font-black text-slate-900 mb-3 tracking-tight group-hover:text-[#7B2CBF] transition-colors">
+                    {/* Contenido Separado en Cuerpo y Footer */}
+                    <div className="md:w-3/5 flex flex-col justify-between">
+                      
+                      {/* Área de Texto Principal */}
+                      <div className="p-8 md:p-10">
+                        <h5 className="text-2xl font-black text-slate-900 mb-4 tracking-tight group-hover:text-[#7B2CBF] transition-colors duration-300">
                           {item.title}
                         </h5>
-                        <p className="text-slate-500 text-sm leading-relaxed mb-6 font-medium">
+                        <p className="text-slate-500 text-sm leading-relaxed font-medium">
                           {item.desc}
                         </p>
                       </div>
                       
-                      <div className="flex items-center justify-between pt-4 border-t border-slate-50">
+                      {/* Área de Inversión (Footer de la Tarjeta) */}
+                      <div className="px-8 py-6 md:px-10 bg-slate-50/50 border-t border-slate-100 flex items-center justify-between mt-auto group-hover:bg-[#7B2CBF]/[0.02] transition-colors duration-500">
                         <div>
-                          <p className="text-[10px] text-slate-400 uppercase font-bold tracking-widest">Inversión</p>
+                          <p className="text-[10px] text-slate-400 uppercase font-bold tracking-widest mb-1">Inversión</p>
                           <p className="text-2xl font-black text-slate-900">{item.price}</p>
                         </div>
-                        {/* BOTÓN + CON FUNCIONALIDAD MODAL */}
+                        
+                        {/* Botón Animado */}
                         <button 
                           onClick={() => setSelectedService(item)}
                           title="Ver detalles del tratamiento"
                           aria-label={`Ver detalles de ${item.title}`}
-                          className="w-12 h-12 bg-slate-900 rounded-2xl flex items-center justify-center text-white hover:bg-[#7B2CBF] transition-colors"
+                          className="relative overflow-hidden w-14 h-14 bg-white border border-slate-200 rounded-2xl flex items-center justify-center text-slate-900 group-hover:bg-slate-900 group-hover:text-white group-hover:border-slate-900 hover:!bg-[#7B2CBF] hover:!border-[#7B2CBF] transition-all duration-300 shadow-sm"
                         >
-                          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" />
+                          {/* El icono gira 90 grados al hacer hover sobre la tarjeta */}
+                          <svg className="w-6 h-6 transform group-hover:rotate-90 transition-transform duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                           </svg>
                         </button>
                       </div>
+
                     </div>
                   </div>
                 ))}
@@ -253,6 +300,14 @@ export default function SeccionTratamientos() {
                 ))}
               </div>
 
+              {/* Dentro del Modal, debajo de los beneficios */}
+              <div className="mt-6 p-4 bg-slate-50 rounded-2xl border border-dashed border-slate-200">
+                <p className="text-[10px] font-black uppercase text-slate-400 mb-2">Protocolo Clínico</p>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Este procedimiento se realiza bajo estrictas normas de esterilización de instrumental y bioseguridad para garantizar su salud.
+                </p>
+              </div>
+
               <div className="flex items-center justify-between border-t pt-8">
                 <div>
                   <p className="text-[10px] text-slate-400 font-black uppercase tracking-widest">Inversión</p>
@@ -260,9 +315,11 @@ export default function SeccionTratamientos() {
                 </div>
                 <a 
                   href="https://wa.me/50662500117"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-[#25D366] text-white px-8 py-4 rounded-2xl font-black text-sm flex items-center gap-2 hover:scale-105 transition-transform"
                 >
-                  RESERVAR <MessageCircle size={18} />
+                  RESERVAR <WhatsApp sx={{ fontSize: 20 }} />
                 </a>
               </div>
             </div>

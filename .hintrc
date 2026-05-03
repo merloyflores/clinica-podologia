@@ -16,6 +16,15 @@
       {
         "frame-title": "off"
       }
+    ],
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "text-size-adjust",
+          "text-size-adjust"
+        ]
+      }
     ]
   }
 }
