@@ -66,14 +66,17 @@ export default function Footer() {
           {/* Columna 3: Ubicación */}
           <div className="lg:col-span-1 flex flex-col items-center lg:items-start">
             <h4 className="text-white font-black text-sm uppercase tracking-widest mb-8">Ubicación Clínica</h4>
+            
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-3 mb-6">
               <MapPin className="text-[#a855f7] shrink-0" size={20} />
-              <p className="text-sm font-bold text-slate-200 leading-relaxed">
+              <p className="text-sm font-bold text-slate-200 leading-relaxed text-center lg:text-left">
                 Sabana Norte, San Jose Costa Rica.<br />
                 <span className="font-medium text-slate-500 text-xs">Consulta exacta vía WhatsApp tras agendar.</span>
               </p>
             </div>
-            <div className="aspect-video w-full rounded-2xl overflow-hidden border border-slate-800 shadow-sm relative transition-all duration-700">
+
+            {/* Contenedor del Mapa Ajustado para Tablets y Móvil */}
+            <div className="w-full max-w-75 sm:max-w-112.5 lg:max-w-87.5 aspect-video rounded-2xl overflow-hidden border border-slate-800 shadow-sm relative transition-all duration-700 mx-auto lg:mx-0">
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15721.285880424694!2d-84.113600!3d9.933300!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e342ad260d5b%3A0x1928646b978938!2sSabana%20Norte%2C%20San%20Jos%C3%A9!5e0!3m2!1ses!2scr!4v1710000000000!5m2!1ses!2scr" 
                 width="100%" 
