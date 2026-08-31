@@ -1,33 +1,62 @@
+// components/JsonLd.tsx
+
 export default function JsonLd() {
   const schema = {
     '@context': 'https://schema.org',
-    '@type': 'Podiatric',
+    '@type': ['MedicalBusiness', 'Podiatric'],
+    '@id': 'https://centropodologicoximenaalvarado.com/#organization',
     'name': 'Centro Podológico Ximena Alvarado',
-    'image': 'https://centropodologicoximenaalvarado.com/og-image.jpg',
-    '@id': 'https://centropodologicoximenaalvarado.com',
+    'alternateName': 'Ximena Alvarado Quiropodista',
     'url': 'https://centropodologicoximenaalvarado.com',
-    'telephone': '(+506) 6250-0117',
+    'logo': 'https://centropodologicoximenaalvarado.com/images/logonavbar.PNG',
+    'image': 'https://centropodologicoximenaalvarado.com/images/logonavbar.PNG',
+    'description': 'Especialista en salud ungueal y pie diabético. Comprometida con la excelencia clínica y el bienestar integral en San José, Costa Rica.',
+    'telephone': '+50662500117',
+    'priceRange': '$$',
     'address': {
       '@type': 'PostalAddress',
-      'streetAddress': 'Paseo Colón, San José, CR.',
+      'streetAddress': 'Sabana Norte',
       'addressLocality': 'San José',
       'addressRegion': 'San José',
       'addressCountry': 'CR'
     },
     'geo': {
       '@type': 'GeoCoordinates',
-      'latitude': 9.0000,
-      'longitude': -84.0000
+      'latitude': 9.933300,
+      'longitude': -84.113600
     },
+    'hasMap': 'https://www.google.com/maps?cid=1812822452243445851',
     'openingHoursSpecification': [
       {
         '@type': 'OpeningHoursSpecification',
-        'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        'opens': '08:00',
-        'closes': '18:00'
+        'dayOfWeek': [
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday',
+          'Saturday',
+          'Sunday'
+        ],
+        'opens': '07:00',
+        'closes': '16:00'
       }
     ],
-    'priceRange': '$$'
+    'sameAs': [
+      'https://www.facebook.com/XimenaAlvaradoQuiropodista/',
+      'https://www.instagram.com/centropd_ximena.alvarado/',
+      'https://wa.me/50662500117'
+    ],
+    'medicalSpecialty': 'Podiatric',
+    'availableService': [
+      {
+        '@type': 'MedicalProcedure',
+        'name': 'Salud Ungueal'
+      },
+      {
+        '@type': 'MedicalProcedure',
+        'name': 'Atención y Cuidado del Pie Diabético'
+      }
+    ]
   };
 
   return (
