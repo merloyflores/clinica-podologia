@@ -3,14 +3,14 @@
 export default function JsonLd() {
   const schema = {
     '@context': 'https://schema.org',
-    '@type': ['MedicalBusiness', 'Podiatric'],
+    '@type': ['LocalBusiness', 'Podiatric'],
     '@id': 'https://centropodologicoximenaalvarado.com/#organization',
     'name': 'Centro Podológico Ximena Alvarado',
     'alternateName': 'Ximena Alvarado Quiropodista',
     'url': 'https://centropodologicoximenaalvarado.com',
     'logo': 'https://centropodologicoximenaalvarado.com/images/logonavbar.PNG',
     'image': 'https://centropodologicoximenaalvarado.com/images/logonavbar.PNG',
-    'description': 'Especialista en salud ungueal y pie diabético. Comprometida con la excelencia clínica y el bienestar integral en San José, Costa Rica.',
+    'description': 'Especialista en Podología. Atención de salud ungueal y pie diabético, comprometida con el bienestar integral en San José, Costa Rica.',
     'telephone': '+50662500117',
     'priceRange': '$$',
     'address': {

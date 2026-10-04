@@ -1,123 +1,63 @@
 import { WhatsApp } from '@mui/icons-material';
-import { MapPin, Phone, Facebook, Instagram, Clock, ShieldCheck } from 'lucide-react';
+import { MapPin, Facebook, Instagram, ShieldCheck } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-slate-900 pt-24 pb-12 text-slate-300">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Ajuste en el grid: text-center para móvil, text-left para LG */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-16 mb-20 text-center lg:text-left">
-          
-          {/* Columna 1: Branding */}
-          <div className="lg:col-span-1 flex flex-col items-center lg:items-start">
-            <div className="mb-6">
-              <Image 
-                src="/images/logonavbar.PNG" 
-                alt="Logo Ximena Alvarado" 
-                width={180} 
-                height={60}
-                className="h-9 md:h-11 w-auto object-contain brightness-0 invert"
-              />
-            </div>
-            <p className="text-slate-400 text-sm leading-relaxed mb-8 font-medium">
-              Especialista en salud ungueal y pie diabético. Comprometida con la excelencia clínica y el bienestar integral en San José, Costa Rica.
+    <footer className="border-t border-slate-800 bg-[#17151b] pb-10 pt-16 text-slate-300 md:pt-20">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-12 border-b border-slate-800/80 pb-14 md:grid-cols-2 lg:grid-cols-4 lg:gap-10">
+          <div>
+            <Image src="/images/logonavbar.PNG" alt="Logo Ximena Alvarado" width={180} height={60} className="mb-6 h-10 w-auto object-contain brightness-0 invert" />
+            <p className="max-w-sm text-sm font-normal leading-7 text-slate-400">
+              Especialista en Podología, enfocada en salud ungueal y pie diabético. Comprometida con la excelencia profesional y el bienestar integral en San José, Costa Rica.
             </p>
-            <div className="flex gap-4 justify-center lg:justify-start">
-              <a href="https://www.facebook.com/XimenaAlvaradoQuiropodista/" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-blue-600 transition-all">
-                <Facebook size={18} />
-              </a>
-              <a href="https://www.instagram.com/centropd_ximena.alvarado/" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-pink-600 transition-all">
-                <Instagram size={18} />
-              </a>
-              <a href="https://wa.me/50662500117" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-green-600 transition-all">
-                <WhatsApp sx={{ fontSize: 18 }} />
-              </a>
+            <div className="mt-6 flex gap-2">
+              <a href="https://www.facebook.com/XimenaAlvaradoQuiropodista/" aria-label="Facebook" className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-700 text-slate-400 transition-colors hover:border-slate-600 hover:text-white"><Facebook size={17} /></a>
+              <a href="https://www.instagram.com/centropd_ximena.alvarado/" aria-label="Instagram" className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-700 text-slate-400 transition-colors hover:border-slate-600 hover:text-white"><Instagram size={17} /></a>
+              <a href="https://wa.me/50662500117" aria-label="WhatsApp" className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-700 text-slate-400 transition-colors hover:border-[#25D366]/50 hover:text-[#25D366]"><WhatsApp sx={{ fontSize: 18 }} /></a>
             </div>
           </div>
 
-          {/* Columna 2: Horarios */}
-          <div className="lg:col-span-1 flex flex-col items-center lg:items-start">
-            <h4 className="text-white font-black text-sm uppercase tracking-widest mb-8">Horario de Atención</h4>
-            <ul className="space-y-4 w-full">
-              {[
-                { days: "Martes a Domingo", time: "7:00 AM - 4:00 PM" },
-                { days: "Lunes", time: "Cerrado" }
-              ].map((item, i) => (
-                <li key={i} className="flex flex-col">
-                  <span className="text-[10px] font-black uppercase text-slate-500 tracking-wider">{item.days}</span>
-                  <span className="text-sm font-bold text-slate-200">{item.time}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-8 pt-6 border-t border-slate-800 w-full">
-              <div className="flex flex-col lg:flex-row items-center lg:items-start gap-3 group">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#7B2CBF] lg:mt-1.5 animate-pulse shadow-[0_0_8px_#7B2CBF]"></div>
-                <p className="text-[11px] font-bold text-slate-400 leading-relaxed tracking-wide uppercase italic">
-                  Atención exclusiva <span className="text-white font-black">con cita previa</span> para garantizar su espacio.
-                </p>
-              </div>
+          <div>
+            <h4 className="mb-6 text-sm font-semibold text-white">Horario de Atención</h4>
+            <div className="space-y-4 text-sm">
+              <div><p className="text-slate-500">Martes a Domingo</p><p className="mt-1 font-medium text-slate-200">7:00 AM - 4:00 PM</p></div>
+              <div><p className="text-slate-500">Lunes</p><p className="mt-1 font-medium text-slate-200">Cerrado</p></div>
             </div>
+            <p className="mt-7 border-l-2 border-[#7B2CBF] pl-4 text-xs leading-6 text-slate-400">
+              Atención exclusiva <span className="font-semibold text-slate-200">con cita previa</span> para garantizar su espacio.
+            </p>
           </div>
 
-          {/* Columna 3: Ubicación */}
-          <div className="lg:col-span-1 flex flex-col items-center lg:items-start">
-            <h4 className="text-white font-black text-sm uppercase tracking-widest mb-8">Ubicación Clínica</h4>
-            
-            <div className="flex flex-col lg:flex-row items-center lg:items-start gap-3 mb-6">
-              <MapPin className="text-[#a855f7] shrink-0" size={20} />
-              <p className="text-sm font-bold text-slate-200 leading-relaxed text-center lg:text-left">
+          <div>
+            <h4 className="mb-6 text-sm font-semibold text-white">Ubicación</h4>
+            <div className="mb-5 flex gap-3">
+              <MapPin className="mt-0.5 shrink-0 text-[#a66bd5]" size={18} />
+              <p className="text-sm font-medium leading-6 text-slate-300">
                 Sabana Norte, San Jose Costa Rica.<br />
-                <span className="font-medium text-slate-500 text-xs">Consulta exacta vía WhatsApp tras agendar.</span>
+                <span className="text-xs font-normal text-slate-500">Consulta exacta vía WhatsApp tras agendar.</span>
               </p>
             </div>
-
-            {/* Contenedor del Mapa Ajustado para Tablets y Móvil */}
-            <div className="w-full max-w-75 sm:max-w-112.5 lg:max-w-87.5 aspect-video rounded-2xl overflow-hidden border border-slate-800 shadow-sm relative transition-all duration-700 mx-auto lg:mx-0">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15721.285880424694!2d-84.113600!3d9.933300!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e342ad260d5b%3A0x1928646b978938!2sSabana%20Norte%2C%20San%20Jos%C3%A9!5e0!3m2!1ses!2scr!4v1710000000000!5m2!1ses!2scr" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen={true} 
-                loading="lazy" 
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
+            <div className="aspect-video w-full overflow-hidden rounded-xl border border-slate-800 bg-slate-900">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15721.285880424694!2d-84.113600!3d9.933300!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e342ad260d5b%3A0x1928646b978938!2sSabana%20Norte%2C%20San%20Jos%C3%A9!5e0!3m2!1ses!2scr!4v1710000000000!5m2!1ses!2scr" width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
             </div>
           </div>
 
-          {/* Columna 4: Certificación */}
-          <div className="lg:col-span-1 flex flex-col items-center lg:items-start">
-            <div className="p-8 bg-slate-800/50 rounded-2xl border border-slate-800 w-full flex flex-col items-center lg:items-start">
-              <ShieldCheck className="text-[#25D366] mb-4" size={32} />
-              <h4 className="text-white font-black text-sm mb-2">Bioseguridad Garantizada</h4>
-              <p className="text-[11px] text-slate-400 font-medium leading-relaxed">
-                Cumplimos con los más altos estándares de esterilización y asepsia para su seguridad.
-              </p>
+          <div>
+            <div className="rounded-2xl border border-slate-800 bg-white/[0.03] p-7">
+              <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-[#25D366]/10 text-[#25D366]"><ShieldCheck size={23} /></div>
+              <h4 className="mb-2 text-sm font-semibold text-white">Bioseguridad Garantizada</h4>
+              <p className="text-xs font-normal leading-6 text-slate-400">Cumplimos con los más altos estándares de esterilización y asepsia para su seguridad.</p>
             </div>
           </div>
-
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
-          <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
-            © {currentYear} Ximena Alvarado. Todos los derechos reservados.
-          </p>
-          <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest flex items-center justify-center gap-2">
-            Powered by 
-            <a 
-              href="https://nexflow-portfolio.vercel.app/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-slate-500 border-b border-slate-700 font-black hover:text-[#7B2CBF] hover:border-[#7B2CBF] transition-all duration-300"
-            >
-              Nexflow Digital
-            </a>
-          </p>
+        <div className="flex flex-col items-center justify-between gap-4 pt-8 text-center md:flex-row md:text-left">
+          <p className="text-[11px] font-medium text-slate-500">© {currentYear} Ximena Alvarado. Todos los derechos reservados.</p>
+          <p className="text-[11px] font-medium text-slate-600">Powered by <a href="https://nexflow-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer" className="font-semibold text-slate-400 transition-colors hover:text-[#a66bd5]">Nexflow Digital</a></p>
         </div>
       </div>
     </footer>

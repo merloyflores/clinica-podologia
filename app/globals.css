@@ -2,48 +2,45 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-  --color-purple: #814DAF;
+  --foreground: #1b1a1f;
+  --brand: #7b2cbf;
+  --brand-dark: #5d228f;
+  --surface: #f8f8fa;
+  --border: #e8e7eb;
+  --muted: #667085;
+  --success: #25d366;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+html { background: var(--background); }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-  
-  /* --- AJUSTES DE ESCALA Y NITIDEZ --- */
-  /* 1. Mejora el renderizado de la fuente para que se vea más nítida y con más cuerpo */
+  font-family: "Segoe UI", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
-  /* 2. Aumenta el interlineado para que el texto no se sienta comprimido */
   line-height: 1.6;
-  
-  /* 3. Evita que los navegadores móviles ajusten el tamaño del texto automáticamente */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  letter-spacing: -0.008em;
 }
 
-.navbar a {
-  /* Estilos predeterminados de tus enlaces */
-  color: black; 
-  text-decoration: none; 
-  transition: color 0.3s ease; 
+* { box-sizing: border-box; }
+
+::selection {
+  background: rgba(123, 44, 191, 0.16);
+  color: #3f175e;
 }
 
-.navbar a:hover {
-  /* El color cambia al morado definido al pasar el mouse */
-  color: var(--color-purple); 
-}
+a, button { -webkit-tap-highlight-color: transparent; }
 
-/* Ajuste extra para que los elementos no crezcan hacia afuera y deformen el layout */
-* {
-  box-sizing: border-box;
+button, a { outline-offset: 4px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

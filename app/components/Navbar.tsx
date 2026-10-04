@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Phone, Instagram, Facebook, Menu, X } from 'lucide-react';
+import { Clock3, Facebook, Instagram, MapPin, Menu, Phone, X } from 'lucide-react';
 import { WhatsApp } from '@mui/icons-material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThreads } from '@fortawesome/free-brands-svg-icons';
@@ -14,11 +14,8 @@ export default function Navbar() {
   const pathname = usePathname();
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
+    document.body.style.overflow = isOpen ? 'hidden' : 'unset';
+    return () => { document.body.style.overflow = 'unset'; };
   }, [isOpen]);
 
   const navLinks = [
@@ -30,136 +27,76 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="fixed w-full top-0 z-100 transition-all duration-300 shadow-lg">
-      {/* 1. TOP BAR */}
-      <div className="bg-slate-900 text-slate-300 py-2 px-6 xl:px-20 hidden sm:flex justify-between items-center text-[10px] uppercase tracking-[0.2em] font-black border-b border-slate-800">
-        <div className="flex gap-6">
-          <span className="flex items-center gap-2">
-            <Phone size={12} className="text-[#25D366]" /> 
-            Citas WhatsApp: <span className="text-white">+(506) 6250-0117</span>
-          </span>
-        </div>
-        <div className="flex gap-5 items-center">
-          <span className="text-slate-500 hidden md:block">Síguenos en redes:</span>
-          
-          {/* Facebook */}
-          <a href="https://www.facebook.com/XimenaAlvaradoQuiropodista/" target="_blank" rel="noopener noreferrer">
-            <Facebook size={14} className="hover:text-blue-600 cursor-pointer transition-colors" />
-          </a>
-          
-          {/* Instagram */}
-          <a href="https://www.instagram.com/centropd_ximena.alvarado/" target="_blank" rel="noopener noreferrer">
-            <Instagram size={14} className="hover:text-pink-600 cursor-pointer transition-colors" />
-          </a>
-          
-          {/* Threads - Ajustado con FontAwesome */}
-          <a href="https://www.threads.net/@centropd_ximena.alvarado" target="_blank" rel="noopener noreferrer" className="flex items-center">
-            <FontAwesomeIcon 
-              icon={faThreads} 
-              className="text-[14px] w-3.5 h-3.5 hover:text-white cursor-pointer transition-colors" 
-            />
-          </a>
-
-          {/* WhatsApp */}
-          <a href="https://wa.me/50662500117" target="_blank" rel="noopener noreferrer">
-            <WhatsApp sx={{ fontSize: 15 }} className="hover:text-green-600 cursor-pointer transition-colors" />
-          </a>
+    <header className="fixed inset-x-0 top-0 z-100 border-b border-slate-200/80 bg-white/95 backdrop-blur-xl">
+      <div className="hidden sm:block border-b border-slate-100 bg-[#17151b] text-slate-300">
+        <div className="mx-auto flex h-9 max-w-7xl items-center justify-between px-6 lg:px-8">
+          <div className="flex items-center gap-5 text-[11px] font-medium">
+            <span className="flex items-center gap-2"><MapPin size={12} className="text-[#a66bd5]" />Sabana Norte, San José, Costa Rica</span>
+            <span className="hidden lg:flex items-center gap-2"><Clock3 size={12} className="text-[#a66bd5]" />Martes a Domingo · 7:00 AM - 4:00 PM</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <a href="tel:+50662500117" className="flex items-center gap-2 text-[11px] font-medium text-slate-200 transition-colors hover:text-white">
+              <Phone size={12} /> +(506) 6250-0117
+            </a>
+            <span className="h-3 w-px bg-slate-700" />
+            <a href="https://www.facebook.com/XimenaAlvaradoQuiropodista/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="transition-colors hover:text-white"><Facebook size={13} /></a>
+            <a href="https://www.instagram.com/centropd_ximena.alvarado/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="transition-colors hover:text-white"><Instagram size={13} /></a>
+            <a href="https://www.threads.net/@centropd_ximena.alvarado" target="_blank" rel="noopener noreferrer" aria-label="Threads" className="flex transition-colors hover:text-white"><FontAwesomeIcon icon={faThreads} className="h-3.5 w-3.5" /></a>
+          </div>
         </div>
       </div>
 
-      {/* 2. MAIN NAV */}
-      <nav className="bg-white/95 backdrop-blur-md border-b border-slate-100 px-6 xl:px-20 py-4 flex justify-between items-center relative">
-        <Link href="/" className="z-50 hover:opacity-80 transition-opacity">
-          <Image 
-            src="/images/logonavbar.PNG" 
-            alt="Logo" 
-            width={240} 
-            height={80} 
-            className="h-9 md:h-11 w-auto object-contain"
-          />
+      <nav className="mx-auto flex h-[74px] max-w-7xl items-center justify-between px-6 lg:px-8">
+        <Link href="/" className="relative z-50 transition-opacity hover:opacity-80" onClick={() => setIsOpen(false)}>
+          <Image src="/images/logonavbar.PNG" alt="Centro Podológico Ximena Alvarado" width={240} height={80} className="h-10 md:h-11 w-auto object-contain" priority />
         </Link>
 
-        {/* Desktop Links - Breakpoint 1280px */}
-        <div className="hidden xl:flex items-center gap-10">
-          {navLinks.map((link) => (
-            <Link 
-              key={link.name}
-              href={link.href}
-              className={`group relative text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 ${
-                pathname === link.href ? 'text-[#7B2CBF]' : 'text-slate-600 hover:text-[#7B2CBF]'
-              }`}
-            >
-              {link.name}
-              <span className={`absolute -bottom-2 left-0 h-0.75 bg-[#7B2CBF] rounded-full transition-all duration-300 ${
-                pathname === link.href ? 'w-full' : 'w-0 group-hover:w-full'
-              }`}></span>
-            </Link>
-          ))}
+        <div className="hidden xl:flex items-center gap-8">
+          {navLinks.map((link) => {
+            const active = pathname === link.href;
+            return (
+              <Link key={link.name} href={link.href} className={`relative py-2 text-[13px] font-semibold tracking-[-0.01em] transition-colors ${active ? 'text-[#6e27aa]' : 'text-slate-600 hover:text-slate-950'}`}>
+                {link.name}
+                <span className={`absolute inset-x-0 -bottom-0.5 mx-auto h-0.5 rounded-full bg-[#7B2CBF] transition-all ${active ? 'w-full' : 'w-0'}`} />
+              </Link>
+            );
+          })}
         </div>
 
-        <div className="flex items-center gap-4 z-50">
-          {/* BOTÓN ESCRITORIO CON INDICADOR PARPADEANTE */}
-          <Link 
-            href="https://wa.me/50662500117"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden sm:flex items-center gap-3 bg-slate-900 hover:bg-[#7B2CBF] px-8 py-3.5 rounded-2xl shadow-xl transition-all"
-          >
-            <span className="text-white font-black text-[10px] uppercase tracking-widest">Agendar Cita</span>
-            <div className="flex h-2 w-2 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#25D366]"></span>
-            </div>
+        <div className="relative z-50 flex items-center gap-3">
+          <Link href="/contactenos" className="hidden sm:inline-flex h-11 items-center justify-center rounded-xl bg-[#6f2aa8] px-6 text-[13px] font-semibold text-white shadow-[0_8px_24px_rgba(111,42,168,0.18)] transition-all hover:bg-[#5d228f] hover:shadow-[0_10px_28px_rgba(111,42,168,0.24)]">
+            Agendar cita
           </Link>
-
-          {/* Menú Hamburguesa */}
-          <button 
-            onClick={() => setIsOpen(!isOpen)}
-            className="xl:hidden p-2 text-slate-900 focus:outline-none"
-          >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
+          <a href="https://wa.me/50662500117" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="hidden sm:flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 text-slate-700 transition-all hover:border-[#25D366]/40 hover:bg-[#25D366]/5 hover:text-[#1f9f50]">
+            <WhatsApp sx={{ fontSize: 20 }} />
+          </a>
+          <button onClick={() => setIsOpen(!isOpen)} aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'} className="xl:hidden flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-800 transition-colors hover:bg-slate-50">
+            {isOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
+      </nav>
 
-        {/* MENÚ MÓVIL FULL SCREEN */}
-        <div className={`fixed top-18 sm:top-27 xl:hidden left-0 w-full bg-slate-900 transition-all duration-500 ease-in-out overflow-hidden ${
-          isOpen ? 'h-[calc(100vh-72px)] opacity-100' : 'h-0 opacity-0'
-        }`}>
-          <div className="flex flex-col justify-center items-center h-full gap-10 px-6">
-            {navLinks.map((link, index) => (
-              <Link 
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                style={{ transitionDelay: isOpen ? `${index * 100}ms` : '0ms' }}
-                className={`text-2xl font-black uppercase tracking-[0.2em] transform transition-all ${
-                  isOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                } ${
-                  pathname === link.href ? 'text-[#7B2CBF]' : 'text-white hover:text-[#7B2CBF]'
-                }`}
-              >
+      <div className={`xl:hidden fixed inset-x-0 top-[74px] sm:top-[110px] bottom-0 bg-white transition-all duration-300 ${isOpen ? 'visible opacity-100' : 'invisible opacity-0 pointer-events-none'}`}>
+        <div className="mx-auto flex h-full max-w-xl flex-col px-6 py-10">
+          <div className="flex flex-col divide-y divide-slate-100 border-y border-slate-100">
+            {navLinks.map((link) => (
+              <Link key={link.name} href={link.href} onClick={() => setIsOpen(false)} className={`flex items-center justify-between py-5 text-xl font-semibold tracking-tight transition-colors ${pathname === link.href ? 'text-[#7B2CBF]' : 'text-slate-800 hover:text-[#7B2CBF]'}`}>
                 {link.name}
+                <span className={`h-1.5 w-1.5 rounded-full ${pathname === link.href ? 'bg-[#7B2CBF]' : 'bg-slate-200'}`} />
               </Link>
             ))}
-            
-            <div className={`h-px w-24 bg-slate-800 my-4 transition-all duration-1000 ${isOpen ? 'w-48' : 'w-0'}`}></div>
-            
-            {/* BOTÓN MÓVIL CON INDICADOR PARPADEANTE */}
-            <Link 
-              href="https://wa.me/50662500117"
-              className={`bg-[#25D366] text-white px-10 py-5 rounded-2xl font-black uppercase text-xs tracking-widest shadow-2xl transform transition-all duration-700 delay-500 flex items-center gap-3 ${
-                isOpen ? 'scale-100 opacity-100' : 'scale-50 opacity-0'
-              }`}
-            >
-              <span>Agendar Consulta</span>
-              <div className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
-              </div>
+          </div>
+
+          <div className="mt-auto grid gap-3 pt-8">
+            <Link href="/contactenos" onClick={() => setIsOpen(false)} className="flex h-14 items-center justify-center rounded-xl bg-[#6f2aa8] text-sm font-semibold text-white">
+              Agendar Consulta
             </Link>
+            <a href="https://wa.me/50662500117" target="_blank" rel="noopener noreferrer" className="flex h-14 items-center justify-center gap-2 rounded-xl border border-slate-200 text-sm font-semibold text-slate-700">
+              <WhatsApp sx={{ fontSize: 20 }} /> WhatsApp +(506) 6250-0117
+            </a>
           </div>
         </div>
-      </nav>
+      </div>
     </header>
   );
 }
