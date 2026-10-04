@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -34,6 +34,8 @@ const treatmentLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [mobileTreatmentsOpen, setMobileTreatmentsOpen] = useState(false);
+  const [desktopTreatmentsOpen, setDesktopTreatmentsOpen] = useState(false);
+  const desktopTreatmentsRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -44,7 +46,27 @@ export default function Navbar() {
   useEffect(() => {
     setIsOpen(false);
     setMobileTreatmentsOpen(false);
+    setDesktopTreatmentsOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    const handlePointerDown = (event: PointerEvent) => {
+      if (!desktopTreatmentsRef.current?.contains(event.target as Node)) {
+        setDesktopTreatmentsOpen(false);
+      }
+    };
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setDesktopTreatmentsOpen(false);
+    };
+
+    document.addEventListener('pointerdown', handlePointerDown);
+    document.addEventListener('keydown', handleEscape);
+    return () => {
+      document.removeEventListener('pointerdown', handlePointerDown);
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, []);
 
   const navLinks = [
     { name: 'Inicio', href: '/' },
@@ -91,18 +113,26 @@ export default function Navbar() {
             );
           })}
 
-          <div className="group relative">
+          <div
+            ref={desktopTreatmentsRef}
+            className="relative"
+            onMouseEnter={() => setDesktopTreatmentsOpen(true)}
+            onMouseLeave={() => setDesktopTreatmentsOpen(false)}
+          >
             <Link
               href="/tratamientos"
               className={`relative flex items-center gap-1.5 py-2 text-[13px] font-semibold tracking-[-0.01em] transition-colors ${treatmentActive ? 'text-[#6e27aa]' : 'text-slate-600 hover:text-slate-950'}`}
               aria-haspopup="true"
+              aria-expanded={desktopTreatmentsOpen}
+              onFocus={() => setDesktopTreatmentsOpen(true)}
+              onClick={() => setDesktopTreatmentsOpen(false)}
             >
               Tratamientos
-              <ChevronDown size={14} className="mt-0.5 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180" />
+              <ChevronDown size={14} className={`mt-0.5 transition-transform duration-200 ${desktopTreatmentsOpen ? 'rotate-180' : ''}`} />
               <span className={`absolute inset-x-0 -bottom-0.5 mx-auto h-0.5 rounded-full bg-[#7B2CBF] transition-all ${treatmentActive ? 'w-full' : 'w-0'}`} />
             </Link>
 
-            <div className="invisible absolute left-1/2 top-full w-[660px] -translate-x-1/2 translate-y-3 pt-5 opacity-0 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+            <div className={`absolute left-1/2 top-full w-[660px] -translate-x-1/2 pt-5 transition-all duration-200 ${desktopTreatmentsOpen ? 'visible translate-y-0 opacity-100' : 'invisible pointer-events-none translate-y-3 opacity-0'}`}>
               <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_22px_70px_rgba(15,23,42,0.14)]">
                 <div className="grid grid-cols-[1fr_220px]">
                   <div className="p-6">
@@ -111,13 +141,13 @@ export default function Navbar() {
                         <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#7B2CBF]">Atención especializada</p>
                         <p className="mt-1 text-sm font-semibold text-slate-950">Tratamientos podológicos</p>
                       </div>
-                      <Link href="/tratamientos" className="flex items-center gap-1 text-xs font-semibold text-slate-500 transition-colors hover:text-[#7B2CBF]">
+                      <Link href="/tratamientos" onClick={() => setDesktopTreatmentsOpen(false)} className="flex items-center gap-1 text-xs font-semibold text-slate-500 transition-colors hover:text-[#7B2CBF]">
                         Ver todos <ChevronRight size={14} />
                       </Link>
                     </div>
                     <div className="grid grid-cols-2 gap-x-4 gap-y-1">
                       {treatmentLinks.map((item) => (
-                        <Link key={item.href} href={item.href} className="group/item rounded-xl px-3 py-3 transition-colors hover:bg-[#7B2CBF]/[0.045] focus:bg-[#7B2CBF]/[0.045] focus:outline-none">
+                        <Link key={item.href} href={item.href} onClick={() => setDesktopTreatmentsOpen(false)} className="group/item rounded-xl px-3 py-3 transition-colors hover:bg-[#7B2CBF]/[0.045] focus:bg-[#7B2CBF]/[0.045] focus:outline-none">
                           <span className="block text-[13px] font-semibold text-slate-800 transition-colors group-hover/item:text-[#6e27aa]">{item.name}</span>
                           <span className="mt-0.5 block text-[10.5px] leading-4 text-slate-500">{item.note}</span>
                         </Link>
@@ -133,7 +163,7 @@ export default function Navbar() {
                       <p className="text-sm font-semibold leading-5 text-slate-900">¿No sabe cuál tratamiento necesita?</p>
                       <p className="mt-2 text-xs leading-5 text-slate-500">Puede reservar una valoración y recibir orientación según su caso.</p>
                     </div>
-                    <Link href="/reservar" className="mt-6 inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-[#6f2aa8] px-4 text-xs font-semibold text-white transition-colors hover:bg-[#5d228f]">
+                    <Link href="/reservar" onClick={() => setDesktopTreatmentsOpen(false)} className="mt-6 inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-[#6f2aa8] px-4 text-xs font-semibold text-white transition-colors hover:bg-[#5d228f]">
                       <CalendarCheck2 size={15} /> Agendar valoración
                     </Link>
                   </div>
@@ -190,11 +220,11 @@ export default function Navbar() {
               <div className={`grid transition-[grid-template-rows] duration-300 ${mobileTreatmentsOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
                 <div className="overflow-hidden">
                   <div className="mb-5 rounded-2xl border border-slate-200 bg-[#faf9fb] p-2">
-                    <Link href="/tratamientos" className="mb-1 flex items-center justify-between rounded-xl px-3 py-3 text-sm font-semibold text-[#6e27aa] transition-colors hover:bg-white">
+                    <Link href="/tratamientos" onClick={() => { setMobileTreatmentsOpen(false); setIsOpen(false); }} className="mb-1 flex items-center justify-between rounded-xl px-3 py-3 text-sm font-semibold text-[#6e27aa] transition-colors hover:bg-white">
                       Ver todos los tratamientos <ChevronRight size={16} />
                     </Link>
                     {treatmentLinks.map((item) => (
-                      <Link key={item.href} href={item.href} className="flex items-center justify-between rounded-xl px-3 py-3 text-[13px] font-medium text-slate-700 transition-colors hover:bg-white hover:text-[#6e27aa]">
+                      <Link key={item.href} href={item.href} onClick={() => { setMobileTreatmentsOpen(false); setIsOpen(false); }} className="flex items-center justify-between rounded-xl px-3 py-3 text-[13px] font-medium text-slate-700 transition-colors hover:bg-white hover:text-[#6e27aa]">
                         {item.name}<ChevronRight size={14} className="text-slate-300" />
                       </Link>
                     ))}
