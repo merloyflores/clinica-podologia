@@ -1,12 +1,10 @@
 'use client';
 
-import { useState } from 'react';
 import { Microscope, ShieldCheck, Stethoscope, Footprints, Activity, Thermometer, Clock, CheckCircle2, AlertCircle, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
-import ModalReserva from '../components/ModalReserva';
+import Link from 'next/link';
 
 export default function QuiropodiaContent() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const pilares = [
     { title: 'Valoración Podológica Integral', desc: 'Evaluación dermatológica y vascular profunda de la lámina ungueal para detectar patologías antes de que limiten su movilidad.', icon: <Stethoscope size={21} />, detail: 'Exploración de pulsos y sensibilidad.' },
     { title: 'Tratamiento de Onicopatías', desc: 'Corte técnico y fresado de uñas engrosadas o encarnadas (onicocriptosis) con tecnología de micro-motor indoloro.', icon: <Microscope size={21} />, detail: 'Eliminación de espículas sin dolor.' },
@@ -58,13 +56,12 @@ export default function QuiropodiaContent() {
             <div className="lg:sticky lg:top-32">
               <div className="overflow-hidden rounded-[20px] border border-slate-200 bg-white shadow-[0_18px_50px_rgba(15,23,42,0.08)]">
                 <div className="relative h-[430px] md:h-[520px]"><Image src="/images/ximenafotoperfil.jpeg" alt="Ximena Alvarado - Especialista en Podología" fill className="object-cover" /><div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/15 to-transparent" /><div className="absolute inset-x-0 bottom-0 p-7 md:p-8"><p className="text-lg leading-7 text-white">“La salud de sus pies es el cimiento indiscutible de su libertad de movimiento y calidad de vida.”</p><p className="mt-5 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/70">Ximena Alvarado · Especialista en Podología</p></div></div>
-                <div className="p-5"><button onClick={() => setIsModalOpen(true)} className="flex h-14 w-full items-center justify-center gap-2.5 rounded-xl bg-[#6f2aa8] px-6 text-[13px] font-semibold text-white transition-colors hover:bg-[#5d228f]">Agendar valoración <ArrowRight size={17} /></button></div>
+                <div className="p-5"><Link href="/reservar?service=quiropodia" className="flex h-14 w-full items-center justify-center gap-2.5 rounded-xl bg-[#6f2aa8] px-6 text-[13px] font-semibold text-white transition-colors hover:bg-[#5d228f]">Consultar horarios y agendar <ArrowRight size={17} /></Link></div>
               </div>
             </div>
           </aside>
         </div>
       </div>
-      <ModalReserva isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 }

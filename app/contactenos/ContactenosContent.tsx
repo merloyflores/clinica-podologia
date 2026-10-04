@@ -1,7 +1,8 @@
 'use client';
 
 import { WhatsApp } from '@mui/icons-material';
-import { Clock, Lock, MapPin, Phone } from 'lucide-react';
+import Link from 'next/link';
+import { CalendarCheck2, Clock, Lock, MapPin } from 'lucide-react';
 
 export default function ContactenosContent() {
   return (
@@ -32,8 +33,8 @@ export default function ContactenosContent() {
             <div className="overflow-hidden rounded-[24px] border border-slate-800 bg-[#19161d] text-white shadow-[0_26px_70px_rgba(29,20,36,0.16)]">
               <div className="border-b border-white/10 px-7 py-8 md:px-10 md:py-10">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#b98ada]">Agenda y consultas</p>
-                <h3 className="mt-3 text-3xl font-semibold tracking-[-0.035em] md:text-4xl">Agendar vía WhatsApp</h3>
-                <p className="mt-4 max-w-2xl text-sm leading-6 text-slate-400 md:text-base">Es la forma más rápida de obtener una cita. Envíenos una foto de su caso para un pre-diagnóstico gratuito.</p>
+                <h3 className="mt-3 text-3xl font-semibold tracking-[-0.035em] md:text-4xl">Reserve según disponibilidad real</h3>
+                <p className="mt-4 max-w-2xl text-sm leading-6 text-slate-400 md:text-base">Consulte los horarios libres dentro de nuestra jornada y confirme su cita directamente. Si necesita orientación antes de reservar, también puede escribirnos por WhatsApp.</p>
               </div>
 
               <div className="grid grid-cols-1 divide-y divide-slate-800 md:grid-cols-2 md:divide-x md:divide-y-0">
@@ -42,8 +43,11 @@ export default function ContactenosContent() {
               </div>
 
               <div className="border-t border-slate-800 p-7 md:p-8">
-                <a href="https://wa.me/50662500117" target="_blank" rel="noopener noreferrer" className="flex h-14 w-full items-center justify-center gap-3 rounded-xl bg-[#25D366] px-6 text-[13px] font-semibold text-white transition-colors hover:bg-[#20bd5a]"><WhatsApp sx={{ fontSize: 20 }} /> Iniciar chat de citas</a>
-                <p className="mt-4 text-center text-[11px] text-slate-500">Respuesta promedio: <span className="font-medium text-slate-300">30 a 60 minutos</span></p>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <Link href="/reservar" className="flex h-14 w-full items-center justify-center gap-3 rounded-xl bg-[#6f2aa8] px-6 text-[13px] font-semibold text-white transition-colors hover:bg-[#5d228f]"><CalendarCheck2 size={19} /> Agendar cita</Link>
+                  <a href="https://wa.me/50662500117" target="_blank" rel="noopener noreferrer" className="flex h-14 w-full items-center justify-center gap-3 rounded-xl bg-[#25D366] px-6 text-[13px] font-semibold text-white transition-colors hover:bg-[#20bd5a]"><WhatsApp sx={{ fontSize: 20 }} /> Consultar por WhatsApp</a>
+                </div>
+                <p className="mt-4 text-center text-[11px] text-slate-500">La agenda en línea muestra los espacios disponibles en tiempo real.</p>
               </div>
             </div>
           </div>

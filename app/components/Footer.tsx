@@ -1,6 +1,7 @@
 import { WhatsApp } from '@mui/icons-material';
-import { MapPin, Facebook, Instagram, ShieldCheck } from 'lucide-react';
+import { MapPin, Facebook, Instagram, ShieldCheck, CalendarCheck2 } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,7 +15,8 @@ export default function Footer() {
             <p className="max-w-sm text-sm font-normal leading-7 text-slate-400">
               Especialista en Podología, enfocada en salud ungueal y pie diabético. Comprometida con la excelencia profesional y el bienestar integral en San José, Costa Rica.
             </p>
-            <div className="mt-6 flex gap-2">
+            <Link href="/reservar" className="mt-6 inline-flex h-11 items-center gap-2 rounded-xl bg-[#6f2aa8] px-4 text-xs font-semibold text-white transition-colors hover:bg-[#5d228f]"><CalendarCheck2 size={16} /> Agendar cita</Link>
+            <div className="mt-4 flex gap-2">
               <a href="https://www.facebook.com/XimenaAlvaradoQuiropodista/" aria-label="Facebook" className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-700 text-slate-400 transition-colors hover:border-slate-600 hover:text-white"><Facebook size={17} /></a>
               <a href="https://www.instagram.com/centropd_ximena.alvarado/" aria-label="Instagram" className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-700 text-slate-400 transition-colors hover:border-slate-600 hover:text-white"><Instagram size={17} /></a>
               <a href="https://wa.me/50662500117" aria-label="WhatsApp" className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-700 text-slate-400 transition-colors hover:border-[#25D366]/50 hover:text-[#25D366]"><WhatsApp sx={{ fontSize: 18 }} /></a>
@@ -57,7 +59,7 @@ export default function Footer() {
 
         <div className="flex flex-col items-center justify-between gap-4 pt-8 text-center md:flex-row md:text-left">
           <p className="text-[11px] font-medium text-slate-500">© {currentYear} Ximena Alvarado. Todos los derechos reservados.</p>
-          <p className="text-[11px] font-medium text-slate-600">Powered by <a href="https://nexflow-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer" className="font-semibold text-slate-400 transition-colors hover:text-[#a66bd5]">Nexflow Digital</a></p>
+          <div className="flex items-center gap-4 text-[11px] font-medium text-slate-600"><Link href="/gestion-agenda" className="transition-colors hover:text-slate-400">Gestión de agenda</Link><span className="h-3 w-px bg-slate-800" /><p>Powered by <a href="https://nexflow-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer" className="font-semibold text-slate-400 transition-colors hover:text-[#a66bd5]">Nexflow Digital</a></p></div>
         </div>
       </div>
     </footer>

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css' assert { type: 'css' };
-import BotonWhatsApp from "./components/BotonWhatsApp"
+import FloatingCareDock from "./components/FloatingCareDock"
 import Footer from "./components/Footer"
 import Navbar from "./components/Navbar"
 import JsonLd from "./JsonLd"
@@ -8,7 +8,7 @@ import JsonLd from "./JsonLd"
 const SITE_URL = 'https://centropodologicoximenaalvarado.com';
 const SITE_TITLE = 'Centro Podológico Ximena Alvarado | San José, Costa Rica';
 const SITE_DESCRIPTION =
-  'Atención podológica especializada en San José, Costa Rica: uña encarnada, hongos en las uñas, pie diabético y callosidades. Especialista en Podología Ximena Alvarado. Agende su cita por WhatsApp.';
+  'Atención podológica especializada en San José, Costa Rica: uña encarnada, hongos en las uñas, pie diabético y callosidades. Especialista en Podología Ximena Alvarado. Reserve su cita en línea o contáctenos por WhatsApp.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -58,7 +58,7 @@ export default function RootLayout({
         <div className="relative flex flex-col grow pb-10">
           <Navbar />
           <main className="grow">{children}</main>
-          <BotonWhatsApp />
+          <FloatingCareDock />
         </div>
 
         <Footer />

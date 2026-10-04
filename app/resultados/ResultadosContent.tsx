@@ -1,8 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import { Star, CheckCircle2, MessageCircle } from 'lucide-react';
-import { Call, WhatsApp } from '@mui/icons-material';
+import Link from 'next/link';
+import { Star, CheckCircle2, MessageCircle, CalendarCheck2 } from 'lucide-react';
+import { Call } from '@mui/icons-material';
 
 const casos = [
   {
@@ -91,7 +92,7 @@ export default function ResultadosContent() {
           <h2 className="mx-auto mt-4 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-[-0.045em] md:text-5xl lg:text-6xl">Vuelva a caminar <span className="font-normal text-[#c9a6e4]">con total libertad.</span></h2>
           <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-slate-400 md:text-base">No permita que una molestia se convierta en una limitación. Agende su valoración con la <span className="font-medium text-white">Especialista Ximena Alvarado</span> y reciba atención profesional inmediata.</p>
           <div className="mx-auto mt-9 grid max-w-xl gap-3 sm:grid-cols-2">
-            <a href="https://wa.me/50662500117" target="_blank" rel="noopener noreferrer" className="flex h-14 items-center justify-center gap-2.5 rounded-xl bg-[#25D366] px-6 text-[13px] font-semibold text-white transition-colors hover:bg-[#20bd5a]"><WhatsApp sx={{ fontSize: 21 }} /> Agendar por WhatsApp</a>
+            <Link href="/reservar?service=valoracion" className="flex h-14 items-center justify-center gap-2.5 rounded-xl bg-[#6f2aa8] px-6 text-[13px] font-semibold text-white transition-colors hover:bg-[#5d228f]"><CalendarCheck2 size={19} /> Ver horarios y agendar</Link>
             <a href="tel:50662500117" className="flex h-14 items-center justify-center gap-2.5 rounded-xl border border-white/15 bg-white/[0.04] px-6 text-[13px] font-semibold text-white transition-colors hover:bg-white/[0.08]"><Call sx={{ fontSize: 21 }} /> Llamar ahora</a>
           </div>
           <p className="mt-6 text-[10px] uppercase tracking-[0.14em] text-slate-600">Atención Martes a Domingo · Sabana Norte, San José</p>

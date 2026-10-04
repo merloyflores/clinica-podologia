@@ -1,7 +1,6 @@
-import { Star, ShieldCheck, HeartPulse, Activity, CheckCircle2, ArrowUpRight, ChevronRight } from 'lucide-react';
+import { Star, ShieldCheck, HeartPulse, Activity, CheckCircle2, ArrowUpRight, ChevronRight, CalendarCheck2 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { WhatsApp } from '@mui/icons-material';
 
 export default function Home() {
   return (
@@ -507,15 +506,13 @@ export default function Home() {
                     <p className="text-slate-500 text-sm font-medium">Agende su valoración inicial hoy mismo.</p>
                   </div>
 
-                  <a 
-                    href="https://wa.me/50662500117?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20valoraci%C3%B3n%20podol%C3%B3gica"
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="group relative flex w-full items-center justify-center gap-3 rounded-xl bg-[#25D366] px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-[#20bd5b]"
+                  <Link
+                    href="/reservar?service=valoracion"
+                    className="group relative flex w-full items-center justify-center gap-3 rounded-xl bg-[#6f2aa8] px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-[#5d228f]"
                   >
-                    <WhatsApp sx={{ fontSize: 24 }} />
-                    Contactar por WhatsApp
-                  </a>
+                    <CalendarCheck2 size={20} />
+                    Consultar horarios y agendar
+                  </Link>
                   
                   {/* Puntos de Garantía */}
                   <div className="flex flex-col gap-4 w-full border-t border-slate-100 pt-6">
@@ -523,7 +520,7 @@ export default function Home() {
                       <div className="w-6 h-6 rounded-full bg-emerald-50 flex items-center justify-center">
                         <CheckCircle2 size={14} className="text-[#25D366]" />
                       </div>
-                      <span>Respuesta inmediata</span>
+                      <span>Disponibilidad en tiempo real</span>
                     </div>
                     <div className="flex items-center justify-center lg:justify-start gap-3 text-slate-600 text-sm font-bold">
                       <div className="w-6 h-6 rounded-full bg-emerald-50 flex items-center justify-center">

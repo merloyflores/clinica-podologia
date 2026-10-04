@@ -64,7 +64,7 @@ export default function Navbar() {
         </div>
 
         <div className="relative z-50 flex items-center gap-3">
-          <Link href="/contactenos" className="hidden sm:inline-flex h-11 items-center justify-center rounded-xl bg-[#6f2aa8] px-6 text-[13px] font-semibold text-white shadow-[0_8px_24px_rgba(111,42,168,0.18)] transition-all hover:bg-[#5d228f] hover:shadow-[0_10px_28px_rgba(111,42,168,0.24)]">
+          <Link href="/reservar" className="hidden sm:inline-flex h-11 items-center justify-center rounded-xl bg-[#6f2aa8] px-6 text-[13px] font-semibold text-white shadow-[0_8px_24px_rgba(111,42,168,0.18)] transition-all hover:bg-[#5d228f] hover:shadow-[0_10px_28px_rgba(111,42,168,0.24)]">
             Agendar cita
           </Link>
           <a href="https://wa.me/50662500117" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="hidden sm:flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 text-slate-700 transition-all hover:border-[#25D366]/40 hover:bg-[#25D366]/5 hover:text-[#1f9f50]">
@@ -88,8 +88,8 @@ export default function Navbar() {
           </div>
 
           <div className="mt-auto grid gap-3 pt-8">
-            <Link href="/contactenos" onClick={() => setIsOpen(false)} className="flex h-14 items-center justify-center rounded-xl bg-[#6f2aa8] text-sm font-semibold text-white">
-              Agendar Consulta
+            <Link href="/reservar" onClick={() => setIsOpen(false)} className="flex h-14 items-center justify-center rounded-xl bg-[#6f2aa8] text-sm font-semibold text-white">
+              Agendar cita
             </Link>
             <a href="https://wa.me/50662500117" target="_blank" rel="noopener noreferrer" className="flex h-14 items-center justify-center gap-2 rounded-xl border border-slate-200 text-sm font-semibold text-slate-700">
               <WhatsApp sx={{ fontSize: 20 }} /> WhatsApp +(506) 6250-0117

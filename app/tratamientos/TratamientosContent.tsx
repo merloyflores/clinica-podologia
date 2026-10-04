@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { X, CheckCircle2, MessageCircle } from 'lucide-react';
-import { WhatsApp } from '@mui/icons-material';
+import Link from 'next/link';
+import { X, CheckCircle2, MessageCircle, CalendarCheck2 } from 'lucide-react';
 
 const tratamientos = [
   {
@@ -313,14 +313,12 @@ export default function TratamientosContent() {
                   <p className="text-[10px] text-slate-400 font-semibold uppercase tracking-[0.12em]">Inversión</p>
                   <p className="text-3xl font-semibold text-slate-950">{selectedService.price}</p>
                 </div>
-                <a 
-                  href="https://wa.me/50662500117"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[#25D366] text-white px-7 py-3.5 rounded-xl font-semibold text-sm flex items-center gap-2 hover:bg-[#20bd5a] transition-colors"
+                <Link
+                  href="/reservar"
+                  className="flex items-center gap-2 rounded-xl bg-[#6f2aa8] px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#5d228f]"
                 >
-                  RESERVAR <WhatsApp sx={{ fontSize: 20 }} />
-                </a>
+                  RESERVAR <CalendarCheck2 size={18} />
+                </Link>
               </div>
             </div>
           </div>
