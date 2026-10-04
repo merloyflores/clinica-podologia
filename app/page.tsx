@@ -1,16 +1,30 @@
+import type { Metadata } from 'next';
 import { Star, ShieldCheck, HeartPulse, Activity, CheckCircle2, ArrowUpRight, ChevronRight, CalendarCheck2 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+export const metadata: Metadata = {
+  title: 'Podología en San José | Centro Podológico Ximena Alvarado',
+  description: 'Centro podológico en Sabana Norte, San José. Atención para uña encarnada, hongos en las uñas, pie diabético, callosidades, verrugas plantares y cuidado preventivo del pie.',
+  alternates: { canonical: '/' },
+  openGraph: {
+    title: 'Podología en San José | Centro Podológico Ximena Alvarado',
+    description: 'Atención podológica especializada en Sabana Norte, San José, Costa Rica.',
+    url: '/',
+    type: 'website',
+  },
+};
+
 export default function Home() {
   return (
-    <main className="flex flex-col w-full">
+    <div className="flex flex-col w-full">
       {/* SECCIÓN 1: HERO */}
       <section className="relative min-h-[88vh] flex items-center justify-center overflow-hidden bg-[#151319] px-6 pt-32 sm:pt-40 lg:px-8">  
         <div className="absolute inset-0 z-0 overflow-hidden">
           <video
-            autoPlay loop muted playsInline
-            className="h-full w-full object-cover opacity-36" 
+            autoPlay loop muted playsInline preload="metadata" poster="/images/hero-poster.webp"
+            className="h-full w-full object-cover opacity-36"
+            aria-hidden="true"
           >
             <source src="/videos/clinica-vitruvio-hero.mp4" type="video/mp4" />
           </video>
@@ -37,13 +51,13 @@ export default function Home() {
 
             {/* Subtexto */}
             <p className="max-w-2xl text-base md:text-lg text-slate-300 leading-8 font-normal">
-              Atención podológica especializada en el tratamiento de patologías del pie, bajo estrictos estándares de bioseguridad. <span className="text-white font-bold">Alivio real desde la primera cita.</span>
+              Atención podológica especializada en el cuidado y tratamiento de alteraciones del pie, bajo estrictos estándares de bioseguridad. <span className="text-white font-bold">Valoración profesional y atención personalizada.</span>
             </p>
             
             {/* CTAs con Micro-interacciones */}
             <div className="flex flex-col gap-3 pt-2 sm:flex-row">
-              <Link href="/contactenos" className="inline-flex min-h-13 items-center justify-center rounded-xl bg-[#7B2CBF] px-8 py-4 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(123,44,191,0.22)] transition-colors hover:bg-[#68239f]">
-                Agendar Consulta
+              <Link href="/reservar" className="inline-flex min-h-13 items-center justify-center rounded-xl bg-[#7B2CBF] px-8 py-4 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(123,44,191,0.22)] transition-colors hover:bg-[#68239f]">
+                Agendar cita
               </Link>
               <Link href="/tratamientos" className="inline-flex min-h-13 items-center justify-center rounded-xl border border-white/20 bg-white/5 px-8 py-4 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-slate-950">
                 Ver Tratamientos
@@ -57,7 +71,7 @@ export default function Home() {
               </div>
               <div className="text-left">
                 <p className="text-white text-sm font-semibold">Atención Especializada</p>
-                <p className="text-slate-400 text-xs font-normal">Pacientes atendidos en San José, Costa Rica</p>
+                <p className="text-slate-400 text-xs font-normal">Sede en Sabana Norte · pacientes de San José y la GAM</p>
               </div>
             </div>
           </div>
@@ -103,11 +117,11 @@ export default function Home() {
               
               <h4 className="font-bold text-slate-900 text-xl mb-4 tracking-tight">Bioseguridad estricta</h4>
               <p className="text-slate-500 text-sm leading-relaxed font-medium mb-6">
-                Protocolos estrictos de higiene y esterilización que eliminan cualquier riesgo de contaminación cruzada.
+                Protocolos de higiene, esterilización y manejo del instrumental orientados a reducir riesgos de contaminación cruzada.
               </p>
 
               <ul className="space-y-3 border-t border-slate-100 pt-6">
-                {['Instrumental sellado al vacío', 'Autoclave de última generación', 'Material 100% descartable'].map((item, idx) => (
+                {['Instrumental esterilizado y empacado', 'Procesamiento en autoclave', 'Material descartable cuando corresponde'].map((item, idx) => (
                   <li key={idx} className="flex items-center gap-3 text-sm font-medium text-slate-600">
                     <div className="w-1.5 h-1.5 rounded-full bg-[#25D366] shrink-0"></div>
                     {item}
@@ -124,7 +138,7 @@ export default function Home() {
               
               <h4 className="font-bold text-slate-900 text-xl mb-4 tracking-tight">Atención especializada</h4>
               <p className="text-slate-500 text-sm leading-relaxed font-medium mb-6">
-                Trato cercano y experto para cada patología, enfocado en la recuperación total del paciente.
+                Trato cercano y atención individual, con seguimiento de la evolución según las necesidades de cada paciente.
               </p>
 
               <ul className="space-y-3 border-t border-slate-100 pt-6">
@@ -143,13 +157,13 @@ export default function Home() {
                 <Star size={32} strokeWidth={2} />
               </div>
               
-              <h4 className="font-bold text-slate-900 text-xl mb-4 tracking-tight">Resultados comprobados</h4>
+              <h4 className="font-bold text-slate-900 text-xl mb-4 tracking-tight">Seguimiento profesional</h4>
               <p className="text-slate-500 text-sm leading-relaxed font-medium mb-6">
-                Tratamientos indoloros y efectivos, respaldados por casos de éxito reales.
+                Atención orientada al bienestar del paciente, con seguimiento de la evolución y casos reales documentados.
               </p>
 
               <ul className="space-y-3 border-t border-slate-100 pt-6">
-                {['Alivio desde la primera sesión', 'Técnicas no invasivas', 'Retorno a la movilidad'].map((item, idx) => (
+                {['Seguimiento de la evolución', 'Técnicas podológicas cuidadosas', 'Orientación para el autocuidado'].map((item, idx) => (
                   <li key={idx} className="flex items-center gap-3 text-sm font-medium text-slate-600">
                     <div className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></div>
                     {item}
@@ -188,14 +202,14 @@ export default function Home() {
               </h2>
 
               <p className="text-slate-600 leading-relaxed text-base font-medium">
-                Muchos pacientes confunden el cuidado podológico con la estética. La <span className="text-slate-900 font-bold">Quiropodia</span> es el procedimiento podológico fundamental para prevenir infecciones y tratar dolores crónicos causados por callosidades o uñas mal tratadas.
+                Muchos pacientes confunden el cuidado podológico con la estética. La <span className="text-slate-900 font-bold">Quiropodia</span> se enfoca en el cuidado técnico y preventivo de uñas, piel y zonas de presión, de acuerdo con las necesidades de cada persona.
               </p>
 
               <div className="space-y-4">
                 {[
                   { t: 'Tratamiento Podológico', d: 'No es un pedicure; es salud del pie.' },
-                  { t: 'Prevención Activa', d: 'Evita la formación de úlceras y abscesos.' },
-                  { t: 'Bienestar Inmediato', d: 'Elimina la presión dolorosa al caminar.' }
+                  { t: 'Prevención Activa', d: 'Ayuda a identificar y atender factores de riesgo de forma temprana.' },
+                  { t: 'Cuidado del Confort', d: 'Busca reducir molestias asociadas con uñas, durezas o puntos de presión.' }
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4 border-b border-slate-100 py-4 last:border-0">
                     <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-[#25D366]">
@@ -263,7 +277,7 @@ export default function Home() {
                 { 
                   step: '02', 
                   title: 'Quiropodia', 
-                  desc: 'Eliminación indolora de helomas y durezas (callos).',
+                  desc: 'Reducción profesional de helomas y durezas (callos) con técnicas podológicas cuidadosas.',
                   img: '/images/paso-2.jpg'
                 },
                 { 
@@ -282,7 +296,7 @@ export default function Home() {
                 <div key={fase.step} className="group cursor-default">
                   <div className="relative mb-5 h-64 overflow-hidden rounded-2xl border border-slate-200 bg-slate-100">
                     {/* Imagen de la clínica real de Ximena */}
-                    <Image src={fase.img} alt={fase.title} fill className="object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
+                    <Image src={fase.img} alt={fase.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
                     <div className="absolute inset-0 bg-linear-to-t from-slate-950/80 via-transparent to-transparent"></div>
                     <span className="absolute bottom-5 left-5 text-3xl font-semibold text-white/65">{fase.step}</span>
                   </div>
@@ -315,7 +329,7 @@ export default function Home() {
 
               {/* Texto Empático */}
               <p className="text-slate-500 text-base md:text-lg leading-relaxed font-medium max-w-lg border-l-4 border-[#7B2CBF] pl-6">
-                Entendemos el miedo al contagio o al dolor. Por eso, la Especialista en Podología <strong className="text-slate-900">Ximena Alvarado</strong> ejecuta cada procedimiento bajo estrictos protocolos de esterilización. Tu tranquilidad es el primer paso hacia tu bienestar.
+                La seguridad y la confianza forman parte de cada atención. Por eso, la Especialista en Podología <strong className="text-slate-900">Ximena Alvarado</strong> trabaja con protocolos de higiene, esterilización y preparación del instrumental. Su tranquilidad forma parte del proceso de atención.
               </p>
 
               {/* Tarjetas transformadas en Lista de Valor Premium */}
@@ -327,8 +341,8 @@ export default function Home() {
                     <ShieldCheck size={28} strokeWidth={2} />
                   </div>
                   <div>
-                    <h4 className="text-slate-900 font-bold text-base mb-1.5">100% estéril (Clase B)</h4>
-                    <p className="text-slate-500 text-xs font-medium leading-relaxed">Instrumental sellado al vacío y procesado en autoclave. Se abre exclusivamente frente a ti.</p>
+                    <h4 className="text-slate-900 font-bold text-base mb-1.5">Esterilización y preparación</h4>
+                    <p className="text-slate-500 text-xs font-medium leading-relaxed">Instrumental procesado en autoclave, empacado y preparado para cada atención de acuerdo con el protocolo del centro.</p>
                   </div>
                 </div>
 
@@ -338,8 +352,8 @@ export default function Home() {
                     <Activity size={28} strokeWidth={2} />
                   </div>
                   <div>
-                    <h4 className="text-slate-900 font-bold text-base mb-1.5">Técnica indolora</h4>
-                    <p className="text-slate-500 text-xs font-medium leading-relaxed">Precisión micromotora que elimina patologías sin dañar el tejido sano, garantizando un alivio inmediato sin sufrimiento.</p>
+                    <h4 className="text-slate-900 font-bold text-base mb-1.5">Técnica cuidadosa</h4>
+                    <p className="text-slate-500 text-xs font-medium leading-relaxed">Tecnología micromotora de precisión para trabajar de forma controlada sobre uñas y callosidades, priorizando la comodidad y el cuidado del tejido.</p>
                   </div>
                 </div>
 
@@ -355,10 +369,13 @@ export default function Home() {
                {/* Contenedor de la Imagen */}
                <div className="relative flex items-end justify-center overflow-hidden rounded-2xl border border-slate-200 bg-white pt-10 shadow-[0_18px_55px_rgba(15,23,42,0.10)]">
                   {/* Como la foto tiene fondo blanco, el bg-white del contenedor hará que se fusione perfecto */}
-                  <img
-                    src="/images/ximenaalvarado-trabajando.png"
-                    alt="Especialista Ximena Alvarado en procedimiento podológico"
+                  <Image
+                    src="/images/ximenaalvarado-trabajando.webp"
+                    alt="Ximena Alvarado durante una atención podológica en Sabana Norte, San José"
+                    width={1100}
+                    height={1100}
                     className="h-auto w-[90%] translate-y-4 object-contain"
+                    sizes="(max-width: 1024px) 90vw, 40vw"
                   />
 
                   {/* Badge Flotante de Autoridad */}
@@ -395,32 +412,37 @@ export default function Home() {
           <div className="divide-y divide-slate-100 border-t border-slate-100 mb-16">
             {[
               { 
-                id: '01', 
+                id: '01',
+                href: '/tratamientos/una-encarnada',
                 name: 'Onicocriptosis', 
                 tag: 'Uña Encarnada', 
-                desc: 'Extracción técnica y definitiva mediante procedimientos mínimamente invasivos que garantizan el alivio inmediato del dolor crónico.' 
+                desc: 'Valoración y manejo técnico del borde ungueal para aliviar molestias, limpiar el canal y reducir factores que favorecen recurrencias.' 
               },
               { 
-                id: '02', 
+                id: '02',
+                href: '/tratamientos/hongos-unas',
                 name: 'Onicomicosis', 
                 tag: 'Hongos en Uñas', 
-                desc: 'Tratamiento avanzado para la eliminación de agentes fúngicos, recuperando la salud y estética natural de la lámina ungueal.'
+                desc: 'Valoración y manejo podológico de cambios compatibles con onicomicosis, con cuidado de la lámina ungueal y seguimiento de su crecimiento.'
               },
               { 
-                id: '03', 
+                id: '03',
+                href: '/tratamientos/pie-diabetico',
                 name: 'Pie Diabético', 
                 tag: 'Cuidado Preventivo', 
-                desc: 'Protocolo de inspección y mantenimiento especializado para prevenir complicaciones vasculares o infecciosas en pacientes de riesgo.' 
+                desc: 'Valoración preventiva de piel, uñas y zonas de presión, con cuidado podológico especialmente adaptado a personas con diabetes.' 
               },
               { 
-                id: '04', 
+                id: '04',
+                href: '/tratamientos/callosidades',
                 name: 'Helomas y Durezas', 
                 tag: 'Callosidades', 
-                desc: 'Desbridamiento profesional de capas queratósicas mediante tecnología rotatoria, devolviendo la suavidad y el confort al caminar.' 
+                desc: 'Cuidado profesional de helomas y durezas, con reducción controlada del tejido y revisión de los factores de presión o fricción.' 
               }
             ].map((servicio) => (
-              <div 
-                key={servicio.id} 
+              <Link
+                key={servicio.id}
+                href={servicio.href}
                 className="group flex flex-col justify-between gap-6 py-9 transition-colors hover:bg-slate-50/70 md:flex-row md:items-center md:px-4"
               >
                 <div className="flex items-center gap-8 md:w-1/3">
@@ -442,7 +464,7 @@ export default function Home() {
                       <ArrowUpRight size={20} />
                    </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
@@ -489,10 +511,10 @@ export default function Home() {
                 {/* Textos explicativos profundos (Sin miedo a escribir) */}
                 <div className="space-y-5">
                   <p className="text-slate-600 text-base md:text-lg font-medium leading-relaxed">
-                    Sus pies son el pilar de su calidad de vida. No permita que patologías tratables como uñas encarnadas crónicas, callosidades severas o infecciones fúngicas limiten su movilidad diaria o comprometan su salud general.
+                    Sus pies son el pilar de su calidad de vida. Molestias como uñas encarnadas, callosidades persistentes o cambios en las uñas pueden afectar el confort al caminar y merecen una valoración adecuada cuando persisten.
                   </p>
                   <p className="text-slate-600 text-base md:text-lg font-medium leading-relaxed">
-                    Bajo la atención de la Especialista en Podología <strong className="text-slate-900">Ximena Alvarado</strong>, recibirá una valoración precisa y un plan de tratamiento a su medida. Priorizamos su bienestar mediante técnicas modernas, indoloras y con estrictos estándares de bioseguridad.
+                    Bajo la atención de la Especialista en Podología <strong className="text-slate-900">Ximena Alvarado</strong>, recibirá una valoración individual y una orientación de tratamiento de acuerdo con los hallazgos del caso. Priorizamos su bienestar mediante técnicas modernas, cuidadosas y con estrictos estándares de bioseguridad.
                   </p>
                 </div>
               </div>
@@ -537,6 +559,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

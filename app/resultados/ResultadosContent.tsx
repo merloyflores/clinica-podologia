@@ -4,22 +4,23 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Star, CheckCircle2, MessageCircle, CalendarCheck2 } from 'lucide-react';
 import { Call } from '@mui/icons-material';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 const casos = [
   {
     titulo: 'Corrección de Onicocriptosis',
     paciente: 'Paciente recurrente',
     diagnostico: 'Uña encarnada grado II con inflamación severa.',
-    resultado: 'Extracción de espícula y recuperación total en 7 días.',
+    resultado: 'Evolución favorable documentada después del manejo podológico y seguimiento.',
     imgAntes: '/images/resultados/antes1.png',
     imgDespues: '/images/resultados/despues1.png',
-    tag: 'Cirugía Menor',
+    tag: 'Manejo podológico',
   },
   {
     titulo: 'Tratamiento de Onicomicosis',
     paciente: 'Tratamiento 6 meses',
     diagnostico: 'Infección fúngica crónica en 4 láminas ungueales.',
-    resultado: 'Limpieza total de hongo con protocolo de Ácido Nítrico.',
+    resultado: 'Evolución documentada durante el seguimiento del cuidado ungueal.',
     imgAntes: '/images/resultados/antes.jpg',
     imgDespues: '/images/resultados/despues.jpg',
     tag: 'Protocolo de Tratamiento',
@@ -35,12 +36,13 @@ export default function ResultadosContent() {
   return (
     <section className="overflow-hidden bg-white py-24 md:py-32 lg:py-36">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Resultados' }]} />
         <div className="mb-16 grid gap-8 border-b border-slate-200 pb-12 md:grid-cols-[1fr_auto] md:items-end md:pb-14">
           <div className="max-w-3xl">
             <div className="mb-5 flex items-center gap-3"><span className="h-px w-9 bg-[#7B2CBF]" /><p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#7B2CBF]">Casos atendidos</p></div>
             <h1 className="text-4xl font-semibold leading-[1.06] tracking-[-0.045em] text-slate-950 md:text-5xl lg:text-[58px]">Resultados <span className="font-normal text-slate-400">reales.</span></h1>
           </div>
-          <p className="max-w-md text-sm leading-6 text-slate-500 md:text-base">Cada pie es un caso único. Aquí mostramos la evolución de nuestros pacientes bajo protocolos estrictos.</p>
+          <p className="max-w-md text-sm leading-6 text-slate-500 md:text-base">Cada pie es un caso único. Aquí mostramos casos documentados de evolución bajo atención y seguimiento podológico. Los resultados pueden variar según cada paciente.</p>
         </div>
 
         <div className="grid grid-cols-1 gap-14 md:grid-cols-2 md:gap-10 lg:gap-14">
@@ -48,11 +50,11 @@ export default function ResultadosContent() {
             <article key={caso.titulo} className="group">
               <div className="grid grid-cols-2 gap-3">
                 <div className="relative aspect-square overflow-hidden rounded-[18px] border border-slate-200 bg-slate-100">
-                  <Image src={caso.imgAntes} alt={`Antes - ${caso.titulo}`} fill className="object-cover grayscale-[25%]" />
+                  <Image src={caso.imgAntes} alt={`Antes - ${caso.titulo}`} fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover grayscale-[25%]" />
                   <span className="absolute left-3 top-3 rounded-lg bg-slate-950/72 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.12em] text-white backdrop-blur-sm">Antes</span>
                 </div>
                 <div className="relative aspect-square overflow-hidden rounded-[18px] border border-[#7B2CBF]/15 bg-slate-50">
-                  <Image src={caso.imgDespues} alt={`Después - ${caso.titulo}`} fill className="object-cover" />
+                  <Image src={caso.imgDespues} alt={`Después - ${caso.titulo}`} fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover" />
                   <span className="absolute left-3 top-3 rounded-lg bg-[#6f2aa8] px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.12em] text-white">Después</span>
                 </div>
               </div>
@@ -90,7 +92,7 @@ export default function ResultadosContent() {
         <div className="mt-24 overflow-hidden rounded-[24px] bg-[#19161d] px-7 py-12 text-center text-white md:px-12 md:py-16 lg:mt-28 lg:px-20 lg:py-20">
           <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#b98ada]">Recupere su bienestar hoy</p>
           <h2 className="mx-auto mt-4 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-[-0.045em] md:text-5xl lg:text-6xl">Vuelva a caminar <span className="font-normal text-[#c9a6e4]">con total libertad.</span></h2>
-          <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-slate-400 md:text-base">No permita que una molestia se convierta en una limitación. Agende su valoración con la <span className="font-medium text-white">Especialista Ximena Alvarado</span> y reciba atención profesional inmediata.</p>
+          <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-slate-400 md:text-base">Si presenta molestias persistentes o necesita orientación sobre el cuidado de sus pies, puede agendar una valoración con la <span className="font-medium text-white">Especialista Ximena Alvarado</span>.</p>
           <div className="mx-auto mt-9 grid max-w-xl gap-3 sm:grid-cols-2">
             <Link href="/reservar?service=valoracion" className="flex h-14 items-center justify-center gap-2.5 rounded-xl bg-[#6f2aa8] px-6 text-[13px] font-semibold text-white transition-colors hover:bg-[#5d228f]"><CalendarCheck2 size={19} /> Ver horarios y agendar</Link>
             <a href="tel:50662500117" className="flex h-14 items-center justify-center gap-2.5 rounded-xl border border-white/15 bg-white/[0.04] px-6 text-[13px] font-semibold text-white transition-colors hover:bg-white/[0.08]"><Call sx={{ fontSize: 21 }} /> Llamar ahora</a>

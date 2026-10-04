@@ -3,11 +3,13 @@
 import { WhatsApp } from '@mui/icons-material';
 import Link from 'next/link';
 import { CalendarCheck2, Clock, Lock, MapPin } from 'lucide-react';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 export default function ContactenosContent() {
   return (
     <section id="contactenos" className="bg-[#faf9fb] py-24 md:py-32 lg:py-36">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Contacto' }]} />
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-20">
           <div className="lg:col-span-5 lg:pt-8">
             <div className="mb-6 flex items-center gap-3">
@@ -27,6 +29,8 @@ export default function ContactenosContent() {
                 <div><p className="text-[11px] font-medium text-slate-400">Ubicación</p><p className="mt-1 text-lg font-semibold tracking-tight text-slate-900">Sabana Norte, San José, CR.</p></div>
               </div>
             </div>
+            <p className="mt-5 text-sm leading-6 text-slate-500">¿Nos visita desde Heredia, Alajuela, Cartago u otra zona de la GAM? <Link href="/zonas-de-atencion" className="font-semibold text-[#6f2aa8] hover:underline">Consulte nuestras zonas de atención</Link>.</p>
+            <p className="mt-3 text-sm leading-6 text-slate-500">Si tiene dudas antes de reservar, revise las <Link href="/preguntas-frecuentes" className="font-semibold text-[#6f2aa8] hover:underline">preguntas frecuentes</Link>.</p>
           </div>
 
           <div className="lg:col-span-7">

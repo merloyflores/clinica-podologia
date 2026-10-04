@@ -3,8 +3,8 @@ import { CalendarCheck2, Clock3, ShieldCheck } from 'lucide-react';
 import BookingFlow from '../components/BookingFlow';
 
 export const metadata: Metadata = {
-  title: 'Agendar cita',
-  description: 'Consulte horarios disponibles y reserve su cita en el Centro Podológico Ximena Alvarado.',
+  title: 'Agendar cita podológica en San José | Reserva en línea',
+  description: 'Consulte horarios disponibles y reserve en línea su cita podológica en Sabana Norte, San José, con el Centro Podológico Ximena Alvarado.',
   alternates: { canonical: '/reservar' },
 };
 

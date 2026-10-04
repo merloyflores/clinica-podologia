@@ -4,25 +4,28 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { X, CheckCircle2, MessageCircle, CalendarCheck2 } from 'lucide-react';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 const tratamientos = [
   {
     category: "Procedimientos Correctivos",
     items: [
       {
+        slug: "matricectomia-ungueal",
         title: "Matricectomía Ungueal",
-        desc: "Procedimiento técnico definitivo en los laterales de la uña para eliminar la raíz que causa el encarnamiento. La solución de fondo para pacientes crónicos.",
-        longDesc: "La matricectomía es un procedimiento técnico menor realizado bajo anestesia local. El objetivo es cauterizar la raíz de la uña en los laterales para evitar que vuelva a crecer hacia los lados. Es la solución definitiva para pacientes crónicos que sufren de inflamaciones constantes.",
-        benefits: ["Solución permanente", "Recuperación rápida", "Resultados estéticos"],
+        desc: "Procedimiento correctivo que puede considerarse en casos seleccionados de uña encarnada recurrente, previa valoración profesional.",
+        longDesc: "La matricectomía es un procedimiento técnico menor realizado bajo anestesia local que puede considerarse en casos seleccionados de uña encarnada recurrente. Su indicación depende de la valoración del borde ungueal y del historial de recurrencia.",
+        benefits: ["Opción correctiva", "Seguimiento posterior", "Enfoque individual"],
         price: "₡60,000",
         img: "/images/servicios/matricectomia.webp",
-        tag: "Procedimiento Definitivo"
+        tag: "Procedimiento Correctivo"
       },
       {
+        slug: "una-encarnada",
         title: "Onicocriptosis (Uña Encarnada)",
-        desc: "Extracción técnica de la espícula ungueal y limpieza profunda del canal. Alivio inmediato del dolor y la inflamación.",
+        desc: "Manejo técnico de la espícula ungueal y limpieza del canal, orientado a reducir la presión, la irritación y las molestias.",
         longDesc: "Se realiza la extracción de la espícula (el trozo de uña clavado) mediante técnicas podológicas precisas. Se acompaña de una limpieza exhaustiva del canal ungueal y tratamiento antiséptico para eliminar infecciones.",
-        benefits: ["Alivio instantáneo", "Elimina la infección", "Procedimiento indoloro"],
+        benefits: ["Manejo de la presión local", "Limpieza especializada", "Cuidado posterior"],
         price: "₡25,000",
         img: "/images/servicios/una-encarnada.jpg",
         tag: "1 Uña: ₡25k / 2 Uñas: ₡30k"
@@ -33,19 +36,21 @@ const tratamientos = [
     category: "Tratamientos Infecciosos y Patológicos",
     items: [
       {
+        slug: "hongos-unas",
         title: "Onicomicosis (Hongos)",
-        desc: "Tratamiento avanzado con Ácido Nítrico. Protocolo con una duración estimada de 4 a 8 meses según el avance de la infección fúngica.",
-        longDesc: "Tratamiento de alta eficacia basado en la aplicación de Ácido Nítrico para eliminar esporas de hongos en la lámina ungueal. Es un proceso controlado que no afecta el tejido sano y permite que la uña nueva crezca sana.",
-        benefits: ["Eficacia probada", "Sin efectos secundarios", "Seguimiento experto"],
+        desc: "Manejo podológico para cambios compatibles con onicomicosis, con seguimiento de la lámina ungueal y evolución según cada caso.",
+        longDesc: "El manejo se define después de valorar la lámina ungueal, su grosor, coloración y extensión del cambio. Puede incluir cuidado local y seguimiento periódico de acuerdo con la evolución observada.",
+        benefits: ["Cuidado de la lámina ungueal", "Seguimiento de la evolución", "Orientación preventiva"],
         price: "₡25,000",
         img: "/images/servicios/onicomicosis.png",
         tag: "Tratamiento Especializado"
       },
       {
+        slug: "verrugas-plantares",
         title: "Verrugas Plantares + Pedicura",
-        desc: "Tratamiento focalizado para la eliminación de verrugas (papilomas) combinado con una limpieza integral del pie para evitar contagios.",
-        longDesc: "Cauterización química especializada para eliminar el tejido infectado por el virus del papiloma. Incluye pedicura podológica para asegurar que la piel circundante esté sana y libre de virus.",
-        benefits: ["Eliminación de raíz", "Evita el contagio", "Higiene integral"],
+        desc: "Atención podológica focalizada para verrugas plantares, combinada con cuidado local y recomendaciones de higiene según la valoración.",
+        longDesc: "La lesión se valora antes de definir el manejo local. Según sus características puede requerir tratamiento podológico y controles posteriores, junto con recomendaciones para evitar manipulación o irritación de la zona.",
+        benefits: ["Manejo localizado", "Seguimiento según evolución", "Orientación de higiene"],
         price: "₡24,000",
         img: "/images/servicios/verrugas-plantares.png",
         tag: "Higiene + Salud"
@@ -65,21 +70,22 @@ const tratamientos = [
     category: "Unidad Especializada de Pie Diabético",
     items: [
       {
+        slug: "pie-diabetico",
         title: "Valoración Inicial de Riesgo",
-        desc: "Examen exhaustivo de sensibilidad, pulso y estado de la piel para pacientes diabéticos. Vital para prevenir ulceraciones.",
+        desc: "Valoración preventiva del estado de la piel, uñas, sensibilidad y zonas de presión en personas con diabetes.",
         longDesc: "Evaluación exhaustiva de sensibilidad (neuropatía) y riego sanguíneo (vasculopatía). Detectamos puntos de presión y lesiones mínimas que podrían complicarse si no se tratan a tiempo.",
-        benefits: ["Prevención de úlceras", "Evaluación vascular", "Paz mental"],
+        benefits: ["Enfoque preventivo", "Revisión de factores de riesgo", "Orientación de autocuidado"],
         price: "₡15,000",
         img: "/images/servicios/valoracion.jpg",
         tag: "Consulta Vital"
       },
       {
         title: "Tratamiento de Anomalías",
-        desc: "Procedimiento especializado para el manejo de complicaciones derivadas del pie diabético bajo estrictas normas de bioseguridad.",
+        desc: "Cuidado podológico adaptado a personas con diabetes, bajo protocolos de bioseguridad y valoración individual.",
         longDesc: "Cuidado especializado para pies con callosidades extremas, grietas o uñas con malformaciones, bajo protocolos estrictos de bioseguridad para evitar cualquier herida comprometida.",
         benefits: ["Protocolo de bioseguridad", "Técnicas no invasivas", "Cuidado experto"],
         price: "₡27,000",
-        img: "/images/servicios/pie_diabetico.png",
+        img: "/images/servicios/pie_diabetico.webp",
         tag: "Cuidado Avanzado"
       }
     ]
@@ -88,21 +94,23 @@ const tratamientos = [
     category: "Mantenimiento y Estética Podológica",
     items: [
       {
+        slug: "callosidades",
         title: "Helomas + Pedicura Podológica",
         desc: "Eliminación profesional de 'ojos de gallo' y durezas profundas, complementada con una limpieza podológica completa.",
         longDesc: "Retiro técnico de callosidades profundas y dolorosas que impiden el caminar cómodo, seguido de un mantenimiento integral del pie.",
-        benefits: ["Cero dolor al caminar", "Limpieza profunda", "Confort total"],
+        benefits: ["Reducción de durezas", "Limpieza profunda", "Mayor confort"],
         price: "₡24,000",
         img: "/images/servicios/callos-en-los-pies.webp",
         tag: "Confort Total"
       },
       {
+        slug: "pedicura-podologica",
         title: "Pedicura Podológica (Pie Sano)",
         desc: "Mantenimiento preventivo para pies sin patologías. Corte técnico, fresado terapéutico e hidratación profunda.",
         longDesc: "El mantenimiento ideal para mantener pies sanos. Incluye corte técnico de uñas, fresado de la planta del pie e hidratación profunda.",
         benefits: ["Prevención", "Piel suave", "Salud podológica"],
         price: "₡20,000",
-        img: "/images/servicios/pedicuraclínica.png",
+        img: "/images/servicios/pedicura-podologica.png",
         tag: "Mantenimiento"
       },
       {
@@ -124,6 +132,7 @@ export default function TratamientosContent() {
   return (
     <section className="py-24 md:py-32 lg:py-36 bg-white relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Tratamientos' }]} />
         
       {/* Encabezado Estilo Protocolo Clínico */}
       <div className="max-w-7xl mx-auto mb-16 border-b border-slate-200 pb-14">
@@ -150,7 +159,7 @@ export default function TratamientosContent() {
           {/* Columna 1: Con Acento Verde Lateral */}
           <div className="border-l-2 border-[#7B2CBF] pl-6 md:pl-8">
             <p>
-              La salud de sus pies es el cimiento de su movilidad y bienestar general. En nuestro centro, bajo la atención de la Especialista en Podología <strong className="text-slate-900 font-bold">Ximena Alvarado</strong>, transformamos la atención podológica tradicional en una experiencia de salud integral basada en la precisión, la bioseguridad y el alivio definitivo del dolor.
+              La salud de sus pies es el cimiento de su movilidad y bienestar general. En nuestro centro, bajo la atención de la Especialista en Podología <strong className="text-slate-900 font-bold">Ximena Alvarado</strong>, transformamos la atención podológica tradicional en una experiencia de salud integral basada en la precisión, la bioseguridad y el cuidado profesional de cada caso.
             </p>
           </div>
 
@@ -192,7 +201,8 @@ export default function TratamientosContent() {
                       <Image 
                         src={item.img} 
                         alt={item.title} 
-                        fill 
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 40vw, 20vw"
                         className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]" 
                       />
                       
@@ -225,7 +235,17 @@ export default function TratamientosContent() {
                         </div>
                         
                         {/* Botón Animado */}
-                        <button 
+                        <div className="flex items-center gap-2">
+                          {item.slug && (
+                            <Link
+                              href={`/tratamientos/${item.slug}`}
+                              className="hidden text-xs font-semibold text-[#6f2aa8] hover:underline sm:inline"
+                              aria-label={`Leer información completa sobre ${item.title}`}
+                            >
+                              Información completa
+                            </Link>
+                          )}
+                          <button 
                           onClick={() => setSelectedService(item)}
                           title="Ver detalles del tratamiento"
                           aria-label={`Ver detalles de ${item.title}`}
@@ -235,7 +255,8 @@ export default function TratamientosContent() {
                           <svg className="w-6 h-6 transform group-hover:rotate-90 transition-transform duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                           </svg>
-                        </button>
+                          </button>
+                        </div>
                       </div>
 
                     </div>
@@ -284,7 +305,7 @@ export default function TratamientosContent() {
             </button>
             
             <div className="md:w-1/2 h-64 md:h-auto relative">
-              <Image src={selectedService.img} alt={selectedService.title} fill className="object-cover" />
+              <Image src={selectedService.img} alt={selectedService.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
             </div>
 
             <div className="md:w-1/2 p-8 md:p-12">
@@ -304,7 +325,7 @@ export default function TratamientosContent() {
               <div className="mt-6 p-4 bg-slate-50 rounded-xl border border-slate-200">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-400 mb-2">Protocolo de Bioseguridad</p>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  Este procedimiento se realiza bajo estrictas normas de esterilización de instrumental y bioseguridad para garantizar su salud.
+                  Este procedimiento se realiza bajo estrictas normas de esterilización de instrumental y bioseguridad para reducir riesgos y mantener condiciones seguras de atención.
                 </p>
               </div>
 
@@ -314,7 +335,7 @@ export default function TratamientosContent() {
                   <p className="text-3xl font-semibold text-slate-950">{selectedService.price}</p>
                 </div>
                 <Link
-                  href="/reservar"
+                  href={selectedService.slug ? `/reservar?service=${selectedService.slug}` : "/reservar"}
                   className="flex items-center gap-2 rounded-xl bg-[#6f2aa8] px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#5d228f]"
                 >
                   RESERVAR <CalendarCheck2 size={18} />
